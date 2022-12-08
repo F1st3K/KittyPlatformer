@@ -21,6 +21,13 @@ public class Hero : MonoBehaviour
     {
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position+dir, speed*Time.deltaTime);
+        sprite.flipX = dir.x < 0.0f; 
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);    
+        
     }
 
     // Start is called before the first frame update
@@ -34,5 +41,7 @@ public class Hero : MonoBehaviour
     {
         if (Input.GetButton("Horizontal"))
             Run();
+        if (Input.GetButtonDown("Jump"))
+            Jump();
     }
 }
