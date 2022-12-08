@@ -7,6 +7,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private float speed = 3f;
     [SerializeField] private int lives = 5;
     [SerializeField] private float jumpForce = 15f;
+    private bool isStayGround = false;
 
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -30,6 +31,12 @@ public class Hero : MonoBehaviour
         
     }
 
+    private void CheckGround()
+    {
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        isStayGround = collider.Length > 1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +48,11 @@ public class Hero : MonoBehaviour
     {
         if (Input.GetButton("Horizontal"))
             Run();
-        if (Input.GetButtonDown("Jump"))
+        if (isStayGround && Input.GetButtonDown("Jump"))
             Jump();
+    }
+    void FixedUpdate()
+    {
+        CheckGround();
     }
 }
