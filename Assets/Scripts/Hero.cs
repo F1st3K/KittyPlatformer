@@ -20,41 +20,35 @@ public class Hero : MonoBehaviour
 
     private void Run()
     {
-        Vector3 dir = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            transform.position+dir,
-    speed*Time.deltaTime);
+        var dir = transform.right * Input.GetAxis("Horizontal");
+        var position = transform.position;
+        position = Vector3.MoveTowards(position,position+dir,speed*Time.deltaTime);
+        transform.position = position;
         _sprite.flipX = dir.x < 0.0f; 
     }
 
     private void Jump()
     {
-        _rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);    
-        
+        _rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void CheckGround()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-        _isStayGround = collider.Length > 1;
+        var circleCollider = new Collider2D[1];
+        var size = Physics2D.OverlapCircleNonAlloc(transform.position, 0.01f, circleCollider);
+        _isStayGround = size > 0;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetButton("Horizontal"))
             Run();
         if (_isStayGround && Input.GetButtonDown("Jump"))
             Jump();
     }
-    void FixedUpdate()
+    
+    private void FixedUpdate()
     {
         CheckGround();
     }
