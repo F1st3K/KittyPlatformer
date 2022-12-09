@@ -7,34 +7,37 @@ public class Hero : MonoBehaviour
     [SerializeField] private float speed = 3f;
     [SerializeField] private int lives = 5;
     [SerializeField] private float jumpForce = 15f;
-    private bool isStayGround = false;
+    private bool _isStayGround = false;
 
-    private Rigidbody2D rb;
-    private SpriteRenderer sprite;
+    private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _sprite;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Run()
     {
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position+dir, speed*Time.deltaTime);
-        sprite.flipX = dir.x < 0.0f; 
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            transform.position+dir,
+    speed*Time.deltaTime);
+        _sprite.flipX = dir.x < 0.0f; 
     }
 
     private void Jump()
     {
-        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);    
+        _rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);    
         
     }
 
     private void CheckGround()
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-        isStayGround = collider.Length > 1;
+        _isStayGround = collider.Length > 1;
     }
 
     // Start is called before the first frame update
@@ -48,7 +51,7 @@ public class Hero : MonoBehaviour
     {
         if (Input.GetButton("Horizontal"))
             Run();
-        if (isStayGround && Input.GetButtonDown("Jump"))
+        if (_isStayGround && Input.GetButtonDown("Jump"))
             Jump();
     }
     void FixedUpdate()
