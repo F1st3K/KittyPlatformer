@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Drawing;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform player;
+    [SerializeField] private float relativePositionX;
+    [SerializeField] private float relativePositionY;
+    [SerializeField] private float indexZ;
+    
     private Vector3 _pos;
 
     private void Awake()
@@ -14,9 +19,10 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        _pos.x = player.position.x;
-        _pos.y = player.position.y +3f;
-        _pos.z = -10f;
+        var currentPosition = player.position;
+        _pos.x = currentPosition.x + relativePositionX;
+        _pos.y = currentPosition.y + relativePositionY;
+        _pos.z = indexZ;
         
         transform.position = Vector3.Lerp(transform.position, _pos, Time.deltaTime);
     }
