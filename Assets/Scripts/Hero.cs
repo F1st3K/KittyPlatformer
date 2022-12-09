@@ -11,7 +11,15 @@ public class Hero : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _sprite;
+    
+    public static Hero Instance { get; set; }
 
+    public void GetDamage()
+    {
+        lives -= 1;
+        Debug.Log(lives);
+    }
+    
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
