@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
-public class Hero : MonoBehaviour
+public class Hero : Entity
 {
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private int lives = 5;
-    [SerializeField] private float jumpForce = 15f;
+    [SerializeField] private float speed;
+    [SerializeField] private int lives;
+    [SerializeField] private float jumpForce;
     private bool _isStayGround = false;
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _sprite;
     
-    public static Hero Instance { get; set; }
+    public static Hero Instance { get; private set; }
 
-    public void GetDamage()
+    public override void GetDamage()
     {
         lives -= 1;
         Debug.Log(lives);
@@ -22,6 +23,7 @@ public class Hero : MonoBehaviour
     
     private void Awake()
     {
+        Instance = this;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
     }
@@ -47,7 +49,6 @@ public class Hero : MonoBehaviour
         _isStayGround = size > 0;
     }
     
-    // Update is called once per frame
     private void Update()
     {
         if (Input.GetButton("Horizontal"))
