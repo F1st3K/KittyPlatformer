@@ -39,7 +39,7 @@ public class Hero : Entity
 
     private void Jump()
     {
-        _rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        _rigidbody2D.velocity =  Vector2.up * jumpForce;
     }
 
     private void CheckGround()
