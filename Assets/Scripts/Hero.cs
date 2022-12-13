@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Hero : Entity
 {
     [SerializeField] private float speed;
-    [SerializeField] private int lives;
     [SerializeField] private float jumpForce;
     private bool _isStayGround = false;
 
@@ -17,8 +16,8 @@ public class Hero : Entity
 
     public override void GetDamage()
     {
-        lives -= 1;
-        Debug.Log(lives);
+        base.GetDamage();
+        Debug.Log(hitPoint);
     }
     
     private void Awake()

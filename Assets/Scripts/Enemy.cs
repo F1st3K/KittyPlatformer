@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Enemy : Entity
 {
     private void OnCollisionEnter2D(Collision2D other)
     {

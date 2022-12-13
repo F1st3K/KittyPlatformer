@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace
+public class Entity : MonoBehaviour
 {
-    public class Entity : MonoBehaviour
+    [SerializeField] private protected int hitPoint;
+    public virtual void GetDamage()
     {
-        public virtual void GetDamage()
-        {
-        
-        }
+        hitPoint--;
+    }
 
-        public virtual void Die()
-        {
-            Destroy(this.gameObject);
-        }
+    public virtual void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

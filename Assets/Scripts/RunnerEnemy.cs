@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RunnerEnemy : Obstacle
+public class RunnerEnemy : Enemy
 {
     
 }
