@@ -14,12 +14,6 @@ public class Hero : Entity
     
     public static Hero Instance { get; private set; }
 
-    public override void GetDamage()
-    {
-        base.GetDamage();
-        Debug.Log(hitPoint);
-    }
-    
     private void Awake()
     {
         Instance = this;
@@ -58,6 +52,7 @@ public class Hero : Entity
     
     private void FixedUpdate()
     {
+        CheckAlive();
         CheckGround();
     }
 }

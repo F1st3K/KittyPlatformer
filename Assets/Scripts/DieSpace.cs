@@ -1,6 +1,7 @@
+﻿using System;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class DieSpace : MonoBehaviour
 {
     [SerializeField] private int damage;
     
@@ -10,5 +11,6 @@ public class Obstacle : MonoBehaviour
         {
             Hero.Instance.GetDamage(damage);
         }
+        else Destroy(other.gameObject);
     }
 }

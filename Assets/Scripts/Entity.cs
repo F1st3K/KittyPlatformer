@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
     [SerializeField] private protected int hitPoint;
-    public virtual void GetDamage()
+
+    public virtual void GetDamage(int damage)
     {
-        hitPoint--;
+        hitPoint -= damage;
+        Debug.Log(hitPoint + this.GetType().ToString());
     }
 
-    public virtual void Die()
+    private protected virtual void CheckAlive()
     {
-        Destroy(this.gameObject);
+        if(hitPoint < 0)
+            Destroy(this.gameObject);
     }
 }

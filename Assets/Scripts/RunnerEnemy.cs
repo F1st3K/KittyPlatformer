@@ -34,12 +34,10 @@ public class RunnerEnemy : Enemy
     
     private void CheckWanderPosition()
     {
-        if (Math.Abs(transform.position.x - _secondX) == 0)
-        {
-            _secondX = _firstX;
-            _firstX = transform.position.x;
-            _sprite.flipX = !_sprite.flipX;
-        }
+        if (Math.Abs(transform.position.x - _secondX) != 0) return;
+        _secondX = _firstX;
+        _firstX = transform.position.x;
+        _sprite.flipX = !_sprite.flipX;
     }
 
     private void Update()
@@ -49,6 +47,7 @@ public class RunnerEnemy : Enemy
     
     private void FixedUpdate()
     {
+        CheckAlive();
         CheckWanderPosition();
     }
 
