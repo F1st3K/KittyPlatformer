@@ -13,7 +13,7 @@ public class Entity : MonoBehaviour
 
     private protected virtual void CheckAlive()
     {
-        if(hitPoint < 0)
+        if(hitPoint <= 0)
             Destroy(this.gameObject);
     }
 }

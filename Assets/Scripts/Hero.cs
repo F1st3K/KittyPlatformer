@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class Hero : Entity
@@ -40,6 +41,14 @@ public class Hero : Entity
         var circleCollider = new Collider2D[1];
         var size = Physics2D.OverlapCircleNonAlloc(transform.position, 0.01f, circleCollider);
         _isStayGround = size > 0;
+    }
+    
+    private protected override void CheckAlive()
+    {
+        if (hitPoint <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     
     private void Update()
