@@ -10,20 +10,22 @@ public class RunnerEnemy : Enemy
     [SerializeField] private Transform secondPosition;
     [SerializeField] private float speed;
     
+    private float _firstX;
+    private float _secondX;
     private SpriteRenderer _sprite;
 
-    private void Start()
+    private void Awake()
     {
+        _sprite = GetComponentInChildren<SpriteRenderer>();
         firstPosition = transform;
-        secondPosition.position = secondPosition.TransformPoint(0, 0, 0);
-        
-
+        _firstX = firstPosition.TransformPoint(0, 0, 0).x;
+        _secondX = secondPosition.TransformPoint(0, 0, 0).x;
     }
 
     private void Wander()
     {
         var prevPosition = transform.position;
-        var postPosition = new Vector3(secondPosition.position.x, prevPosition.y);
+        var postPosition = new Vector3(_secondX, prevPosition.y);
         var currentPosition = Vector3.MoveTowards(prevPosition,
                                                           postPosition,
                                                  speed*Time.deltaTime);
@@ -32,10 +34,11 @@ public class RunnerEnemy : Enemy
     
     private void CheckWanderPosition()
     {
-        if (transform.position == secondPosition.position)
+        if (Math.Abs(transform.position.x - _secondX) == 0)
         {
-            secondPosition = firstPosition;
-            firstPosition.position = transform.position;
+            _secondX = _firstX;
+            _firstX = transform.position.x;
+            _sprite.flipX = !_sprite.flipX;
         }
     }
 
