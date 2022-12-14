@@ -9,6 +9,7 @@ public class Hero : Entity
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform pointJump;
+    [SerializeField] private Weapon weapon;
     private bool _isStayGround = false;
 
     private Rigidbody2D _rigidbody2D;
@@ -37,6 +38,11 @@ public class Hero : Entity
         _rigidbody2D.velocity =  Vector2.up * jumpForce;
     }
 
+    private void Attack()
+    {
+        weapon.Attack();
+    }
+
     private void CheckGround()
     {
         var circleCollider = new Collider2D[1];
@@ -58,6 +64,8 @@ public class Hero : Entity
             Run();
         if (_isStayGround && Input.GetButtonDown("Jump"))
             Jump();
+        if (Input.GetButtonDown("Fire1"))
+            Attack();
     }
     
     private void FixedUpdate()
