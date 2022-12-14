@@ -8,6 +8,7 @@ public class Hero : Entity
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private Transform pointJump;
     private bool _isStayGround = false;
 
     private Rigidbody2D _rigidbody2D;
@@ -39,7 +40,7 @@ public class Hero : Entity
     private void CheckGround()
     {
         var circleCollider = new Collider2D[1];
-        var size = Physics2D.OverlapCircleNonAlloc(transform.position, 0.01f, circleCollider);
+        var size = Physics2D.OverlapCircleNonAlloc(pointJump.position, 0.01f, circleCollider);
         _isStayGround = size > 0;
     }
     
