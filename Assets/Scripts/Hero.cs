@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Rigidbody), typeof(BoxCollider2D))]
 public class Hero : Entity
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform pointJump;
     [SerializeField] private Weapon weapon;
+    [SerializeField] private FloatingJoystick joystick;
     private bool _isStayGround = false;
 
     private Rigidbody2D _rigidbody2D;
@@ -26,7 +26,7 @@ public class Hero : Entity
 
     private void Run()
     {
-        var dir = transform.right * Input.GetAxis("Horizontal");
+        var dir = transform.right * joystick.Horizontal;
         var position = transform.position;
         position = Vector3.MoveTowards(position,position+dir,speed*Time.deltaTime);
         transform.position = position;
@@ -60,12 +60,12 @@ public class Hero : Entity
     
     private void Update()
     {
-        if (Input.GetButton("Horizontal"))
+        if (joystick.Horizontal != 0 && joystick.Vertical > -0.75)
             Run();
-        if (_isStayGround && Input.GetButtonDown("Jump"))
+        if (_isStayGround && joystick.Vertical > 0.5)
             Jump();
-        if (Input.GetButtonDown("Fire1"))
-            Attack();
+        //if (attack.IsPressed)
+        //    Attack();
     }
     
     private void FixedUpdate()
