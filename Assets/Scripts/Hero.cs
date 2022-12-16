@@ -10,8 +10,8 @@ public class Hero : Entity
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform pointJump;
     [SerializeField] private Weapon weapon;
-    [SerializeField] private FloatingJoystick joystickMovement;
-    [SerializeField] private FloatingJoystick joystickAttack;
+    [SerializeField] private Joystick joystickMovement;
+    [SerializeField] private Joystick joystickAttack;
     private bool _isStayGround = false;
 
     private Rigidbody2D _rigidbody2D;
@@ -28,9 +28,9 @@ public class Hero : Entity
 
     private void Run()
     {
-        var dir = transform.right * joystickMovement.Horizontal;
-        var currentSpeed = Math.Abs(speed * joystickMovement.Horizontal);
-        var position = transform.position;
+        Vector3 dir = transform.right * joystickMovement.Horizontal;
+        float currentSpeed = speed * joystickMovement.GetPower();
+        Vector3 position = transform.position;
         position = Vector3.MoveTowards(position,position+dir,currentSpeed*Time.deltaTime);
         transform.position = position;
         _sprite.flipX = dir.x < 0.0f; 
@@ -38,7 +38,7 @@ public class Hero : Entity
 
     private void Jump()
     {
-        var currentJumpForce = Math.Abs(jumpForce * joystickMovement.Vertical);
+        float currentJumpForce = jumpForce * joystickMovement.GetPower();
         _rigidbody2D.velocity =  Vector2.up * currentJumpForce;
     }
 
@@ -50,7 +50,7 @@ public class Hero : Entity
     private void CheckGround()
     {
         var circleCollider = new Collider2D[1];
-        var size = Physics2D.OverlapCircleNonAlloc(pointJump.position, 0.01f, circleCollider);
+        int size = Physics2D.OverlapCircleNonAlloc(pointJump.position, 0.01f, circleCollider);
         _isStayGround = size > 0;
     }
     
@@ -64,9 +64,10 @@ public class Hero : Entity
     
     private void Update()
     {
-        if (joystickMovement.Horizontal != 0 && joystickMovement.Vertical > -0.75)
+        Debug.Log(joystickMovement.GetCurrentQuarter());
+        if (joystickMovement.Horizontal != 0)
             Run();
-        if (_isStayGround && joystickMovement.Vertical > 0.5)
+        if (_isStayGround && joystickMovement.GetCurrentQuarter() == Vector2.one)
             Jump();
         //if (attack.IsPressed)
         //    Attack();

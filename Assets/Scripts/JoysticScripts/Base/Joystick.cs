@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
+using System.Drawing;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
@@ -74,6 +76,21 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
+    }
+
+    public float GetPower()
+    {
+        return (Math.Abs(Vertical) + Math.Abs(Horizontal));
+    }
+
+    public Vector2 GetCurrentQuarter()
+    {
+        int x = Vertical+Horizontal > 0 ? 1 : -1;
+        x = Horizontal == 0 ? 0 : x;
+        int y = Vertical-Horizontal > 0 ? 1 : -1;
+        y = Vertical == 0 ? 0 : y;
+        var quarter = new Vector2(x, y);
+        return quarter;
     }
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
