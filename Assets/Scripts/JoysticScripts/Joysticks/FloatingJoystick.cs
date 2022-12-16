@@ -20,7 +20,7 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        background.anchoredPosition = Center;
         base.OnPointerUp(eventData);
+        background.anchoredPosition = Center;
     }
 }

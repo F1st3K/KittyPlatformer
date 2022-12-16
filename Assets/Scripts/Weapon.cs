@@ -2,8 +2,8 @@
 
 public class Weapon : MonoBehaviour
 {
-    public void Attack()
+    public void Attack(Vector2 vector, float power)
     {
-        Debug.Log("attack");
+        Debug.Log("attack " + vector.ToString() + " " + power);
     }
 }

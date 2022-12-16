@@ -42,11 +42,6 @@ public class Hero : Entity
         _rigidbody2D.velocity =  Vector2.up * currentJumpForce;
     }
 
-    private void Attack()
-    {
-        weapon.Attack();
-    }
-
     private void CheckGround()
     {
         var circleCollider = new Collider2D[1];
@@ -64,13 +59,14 @@ public class Hero : Entity
     
     private void Update()
     {
-        Debug.Log(joystickMovement.GetCurrentQuarter());
         if (joystickMovement.Horizontal != 0)
             Run();
-        if (_isStayGround && joystickMovement.GetCurrentQuarter() == Vector2.one)
+        if (_isStayGround && 
+            joystickMovement.GetCurrentQuarter() == Vector2.one)
             Jump();
-        //if (attack.IsPressed)
-        //    Attack();
+        if (joystickAttack.GetPower() != 0 &&
+            joystickAttack.LastPossibleVector != Vector2.zero)
+            weapon.Attack(joystickAttack.LastPossibleVector, joystickAttack.GetPower());
     }
     
     private void FixedUpdate()
