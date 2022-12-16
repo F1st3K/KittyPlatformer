@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using System;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider2D))]
 public class Hero : Entity
@@ -9,7 +10,8 @@ public class Hero : Entity
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform pointJump;
     [SerializeField] private Weapon weapon;
-    [SerializeField] private FloatingJoystick joystick;
+    [SerializeField] private FloatingJoystick joystickMovement;
+    [SerializeField] private FloatingJoystick joystickAttack;
     private bool _isStayGround = false;
 
     private Rigidbody2D _rigidbody2D;
@@ -26,16 +28,18 @@ public class Hero : Entity
 
     private void Run()
     {
-        var dir = transform.right * joystick.Horizontal;
+        var dir = transform.right * joystickMovement.Horizontal;
+        var currentSpeed = Math.Abs(speed * joystickMovement.Horizontal);
         var position = transform.position;
-        position = Vector3.MoveTowards(position,position+dir,speed*Time.deltaTime);
+        position = Vector3.MoveTowards(position,position+dir,currentSpeed*Time.deltaTime);
         transform.position = position;
         _sprite.flipX = dir.x < 0.0f; 
     }
 
     private void Jump()
     {
-        _rigidbody2D.velocity =  Vector2.up * jumpForce;
+        var currentJumpForce = Math.Abs(jumpForce * joystickMovement.Vertical);
+        _rigidbody2D.velocity =  Vector2.up * currentJumpForce;
     }
 
     private void Attack()
@@ -60,9 +64,9 @@ public class Hero : Entity
     
     private void Update()
     {
-        if (joystick.Horizontal != 0 && joystick.Vertical > -0.75)
+        if (joystickMovement.Horizontal != 0 && joystickMovement.Vertical > -0.75)
             Run();
-        if (_isStayGround && joystick.Vertical > 0.5)
+        if (_isStayGround && joystickMovement.Vertical > 0.5)
             Jump();
         //if (attack.IsPressed)
         //    Attack();
