@@ -46,8 +46,8 @@ public class RunnerEnemy : Enemy
         RaycastHit2D rayOnGround = Physics2D.Raycast(eyePosition, Vector2.down, edgeDistance);
         RaycastHit2D rayOnWall = Physics2D.Raycast(eyePosition, Vector2.right*Direction, edgeDistance);
         if (Math.Abs(transform.position.x - _secondX) < edgeDistance ||
-            rayOnGround.collider == false /*||
-            rayOnWall.collider == true*/)                  
+            rayOnGround.collider == false ||
+            rayOnWall.collider == true)                  
         {
             _sprite.flipX = !_sprite.flipX;
             RotateOnDirection();
