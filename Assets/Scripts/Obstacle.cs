@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    [SerializeField] private int damage;
+    [SerializeField] private protected int damage;
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject == Hero.Instance.gameObject)
+        if (other.gameObject.TryGetComponent(out Entity entity))
         {
-            Hero.Instance.GetDamage(damage);
+            entity.GetDamage(damage);
         }
     }
 }

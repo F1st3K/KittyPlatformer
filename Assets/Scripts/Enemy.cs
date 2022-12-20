@@ -6,9 +6,9 @@ public class Enemy : Entity
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject == Hero.Instance.gameObject)
+        if (other.gameObject.TryGetComponent(out Hero hero))
         {
-            Hero.Instance.GetDamage(damage);
+            hero.GetDamage(damage);
         }
     }
 }

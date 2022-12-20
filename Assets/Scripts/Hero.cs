@@ -12,16 +12,13 @@ public class Hero : Entity
     [SerializeField] private Weapon weapon;
     [SerializeField] private Joystick joystickMovement;
     [SerializeField] private Joystick joystickAttack;
-    private bool _isStayGround = false;
 
+    private bool _isStayGround = false;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _sprite;
     
-    public static Hero Instance { get; private set; }
-
     private void Awake()
     {
-        Instance = this;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
     }
