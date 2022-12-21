@@ -83,7 +83,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public float GetPower()
     {
-        return (Math.Abs(Vertical) + Math.Abs(Horizontal));
+        return (float)Math.Sqrt(Vertical*Vertical + Horizontal*Horizontal);
     }
 
     public Vector2 GetCurrentQuarter()
