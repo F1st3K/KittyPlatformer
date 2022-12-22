@@ -1,19 +1,16 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
 {
     protected bool IsAlive => _health > 0;
     
     [SerializeField] private protected int maxHealth;
-
+    [SerializeField] private Image fillHealthBar;
+    
     private int _health;
-
-    private protected void Start()
-    {
-        _health = maxHealth;
-    }
 
     public virtual void GetDamage(int value)
     {
@@ -31,6 +28,22 @@ public class Entity : MonoBehaviour
         Debug.Log(_health + this.GetType().ToString());
     }
 
+    private protected void Start()
+    {
+        _health = maxHealth;
+    }
+
+    private protected void FixedUpdate()
+    {
+        UpdateHealthBar();
+        CheckAlive();
+    }
+
+    private protected void UpdateHealthBar()
+    {
+        fillHealthBar.fillAmount = (float)_health / maxHealth;
+    }
+    
     private protected virtual void CheckAlive()
     {
         if(IsAlive == false)

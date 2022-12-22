@@ -63,6 +63,7 @@ public class RunnerEnemy : Enemy
     
     private void FixedUpdate()
     {
+        base.FixedUpdate();
         CheckAlive();
         CheckWanderPosition();
     }

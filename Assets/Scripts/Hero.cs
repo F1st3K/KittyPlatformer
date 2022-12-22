@@ -68,6 +68,7 @@ public class Hero : Entity
     
     private void FixedUpdate()
     {
+        UpdateHealthBar();
         CheckAlive();
         CheckGround();
     }
