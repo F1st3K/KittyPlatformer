@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2748871002275466799}
   - component: {fileID: 2938898530045921107}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,3 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d4b992e016479eb111d38bbb150775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  radius: 5
+  attackPoint: {fileID: 4057928148751088209}

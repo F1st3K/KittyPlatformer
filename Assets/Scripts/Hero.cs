@@ -66,10 +66,9 @@ public class Hero : Entity
             weapon.Attack(joystickAttack.LastPossibleVector, joystickAttack.GetPower());
     }
     
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
-        UpdateHealthBar();
-        CheckAlive();
+        base.FixedUpdate();
         CheckGround();
     }
 }

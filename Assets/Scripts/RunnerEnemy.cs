@@ -61,7 +61,7 @@ public class RunnerEnemy : Enemy
         Wander();
     }
     
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
         base.FixedUpdate();
         CheckAlive();
