@@ -48,7 +48,7 @@ public class Hero : Entity
     
     private protected override void CheckAlive()
     {
-        if (hitPoint <= 0)
+        if (IsAlive == false)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

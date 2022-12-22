@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812215b82e75d4545ba790368e3b8758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 5
+  maxHealth: 5
   speed: 3
   jumpForce: 13
   pointJump: {fileID: 3770790944706424700}

@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e90dfb9bc744bd9b488fde3dfc7afd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 1
+  maxHealth: 3
   damage: 1
   eye: {fileID: 6615310962974719830}
   maxDistance: 10

@@ -1,21 +1,39 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] private protected int hitPoint;
+    protected bool IsAlive => _health > 0;
+    
+    [SerializeField] private protected int maxHealth;
 
-    public virtual void GetDamage(int damage)
+    private int _health;
+
+    private protected void Start()
     {
-        if (hitPoint - damage >= 0)
-            hitPoint -= damage;
-        else hitPoint = 0;
-        Debug.Log(hitPoint + this.GetType().ToString());
+        _health = maxHealth;
+    }
+
+    public virtual void GetDamage(int value)
+    {
+        if (_health - value >= 0)
+            _health -= value;
+        else _health = 0;
+        Debug.Log(_health + this.GetType().ToString());
+    }
+    
+    public virtual void GetHealth(int value)
+    {
+        if (_health + value <= maxHealth)
+            _health += value;
+        else _health = maxHealth;
+        Debug.Log(_health + this.GetType().ToString());
     }
 
     private protected virtual void CheckAlive()
     {
-        if(hitPoint <= 0)
+        if(IsAlive == false)
             Destroy(this.gameObject);
     }
 }
