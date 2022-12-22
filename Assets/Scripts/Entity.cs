@@ -1,6 +1,4 @@
-﻿using System;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
@@ -47,6 +45,6 @@ public class Entity : MonoBehaviour
     private protected virtual void CheckAlive()
     {
         if(IsAlive == false)
-            Destroy(this.gameObject);
+            Destroy(gameObject);
     }
 }

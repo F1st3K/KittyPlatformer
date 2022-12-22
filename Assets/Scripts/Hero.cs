@@ -1,7 +1,8 @@
+using System;
+using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider2D))]
 public class Hero : Entity
@@ -16,6 +17,7 @@ public class Hero : Entity
     private bool _isStayGround = false;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _sprite;
+    public int Direction => _sprite.flipX ? -1 : 1;
     
     private void Awake()
     {
@@ -30,7 +32,8 @@ public class Hero : Entity
         Vector3 position = transform.position;
         position = Vector3.MoveTowards(position,position+dir,currentSpeed*Time.deltaTime);
         transform.position = position;
-        _sprite.flipX = dir.x < 0.0f; 
+        _sprite.flipX = dir.x < 0.0f;
+        
     }
 
     private void Jump()
@@ -53,7 +56,7 @@ public class Hero : Entity
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-    
+
     private void Update()
     {
         if (joystickMovement.Horizontal != 0)
@@ -61,9 +64,13 @@ public class Hero : Entity
         if (_isStayGround && 
             joystickMovement.GetCurrentQuarter() == Vector2.one)
             Jump();
-        if (joystickAttack.GetPower() != 0 &&
-            joystickAttack.LastPossibleVector != Vector2.zero)
-            weapon.Attack(joystickAttack.LastPossibleVector, joystickAttack.GetPower());
+        if (joystickAttack.GetPower() == 0 &&
+            joystickAttack.LastPossiblePower != 0)
+        {
+            weapon.Attack(joystickAttack.GetCurrentVector(), joystickAttack.GetPower());
+            joystickAttack.ResetPower();
+        }
+        weapon.SetFlipX(_sprite.flipX);
     }
     
     private new void FixedUpdate()

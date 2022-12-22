@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Drawing;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 public class RunnerEnemy : Enemy
 {
