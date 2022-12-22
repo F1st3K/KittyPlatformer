@@ -7,7 +7,9 @@ public class Entity : MonoBehaviour
 
     public virtual void GetDamage(int damage)
     {
-        hitPoint -= damage;
+        if (hitPoint - damage >= 0)
+            hitPoint -= damage;
+        else hitPoint = 0;
         Debug.Log(hitPoint + this.GetType().ToString());
     }
 

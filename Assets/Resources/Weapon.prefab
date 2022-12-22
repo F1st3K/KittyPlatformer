@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2748871002275466799}
-  - component: {fileID: 1576005264514126050}
+  - component: {fileID: 2938898530045921107}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -117,7 +117,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1576005264514126050
+--- !u!114 &2938898530045921107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,6 +126,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7080856440399238731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 950969d8c4034adca99f09e9611341c5, type: 3}
+  m_Script: {fileID: 11500000, guid: c2d4b992e016479eb111d38bbb150775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
