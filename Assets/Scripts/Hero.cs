@@ -13,8 +13,9 @@ public class Hero : Entity
     [SerializeField] private Weapon weapon;
     [SerializeField] private Joystick joystickMovement;
     [SerializeField] private Joystick joystickAttack;
+    [SerializeField] private Canvas dieMenu;
 
-    private bool _isStayGround = false;
+    private bool _isStayGround;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _sprite;
     public int Direction => _sprite.flipX ? -1 : 1;
@@ -53,7 +54,7 @@ public class Hero : Entity
     {
         if (IsAlive == false)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            dieMenu.enabled = true;
         }
     }
 
