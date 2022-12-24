@@ -2856,6 +2856,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8905103262834195106, guid: 0e648c01e05c47a4aaf12413e5b1af05, type: 3}
   m_PrefabInstance: {fileID: 936548103}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &1809858011 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 9042261979614346128, guid: 08a224bf4673cd94f85541621d3b9eae, type: 3}
+  m_PrefabInstance: {fileID: 3236278581231201913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1839132424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5057134754663820823, guid: 2987810ac71bcd247906e389cffde07d, type: 3}
@@ -3299,6 +3304,10 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3770790945525569681, guid: 47f1573578d1b3242a2690cf96b0312a, type: 3}
+      propertyPath: dieMenu
+      value: 
+      objectReference: {fileID: 1809858011}
     - target: {fileID: 3770790945525569681, guid: 47f1573578d1b3242a2690cf96b0312a, type: 3}
       propertyPath: joystick
       value: 
