@@ -18,8 +18,9 @@ public class Hero : Entity
     private bool _isStayGround;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _sprite;
+
     public int Direction => _sprite.flipX ? -1 : 1;
-    
+
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -43,19 +44,16 @@ public class Hero : Entity
         _rigidbody2D.velocity =  Vector2.up * currentJumpForce;
     }
 
+    private protected override void CheckAlive()
+    {
+        dieMenu.enabled = !IsAlive;
+    }
+
     private void CheckGround()
     {
         var circleCollider = new Collider2D[1];
         int size = Physics2D.OverlapCircleNonAlloc(pointJump.position, 0.01f, circleCollider);
         _isStayGround = size > 0;
-    }
-    
-    private protected override void CheckAlive()
-    {
-        if (IsAlive == false)
-        {
-            dieMenu.enabled = true;
-        }
     }
 
     private void Update()
@@ -73,7 +71,7 @@ public class Hero : Entity
         }
         weapon.SetFlipX(_sprite.flipX);
     }
-    
+
     private new void FixedUpdate()
     {
         base.FixedUpdate();
