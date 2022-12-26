@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    public interface IJumping
+    public interface IJumpable
     {
         public float JumpForce { get; }
     

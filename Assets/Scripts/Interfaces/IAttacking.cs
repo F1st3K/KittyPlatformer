@@ -2,8 +2,6 @@
 {
     public interface IAttacking
     {
-        public int Damage { get; }
-
-        public void Attack();
+        public IWeaponer Weapon { get; }
     }
 }
