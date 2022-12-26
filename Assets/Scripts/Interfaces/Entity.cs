@@ -3,10 +3,12 @@ using UnityEngine;
 
 namespace Interfaces
 {
+    [RequireComponent(typeof(Rigidbody), typeof(BoxCollider2D))]
     public abstract class Entity : MonoBehaviour, IMovable, IJumper
     {
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
+        [SerializeField] private float groundDistance;
 
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _sprite;
@@ -37,6 +39,9 @@ namespace Interfaces
 
         public bool CheckStayGround()
         {
+            RaycastHit2D rayOnGround = Physics2D.Raycast(transform.position,
+                                                         Vector2.down, 
+                                                         groundDistance);
             return true;
         }
 
