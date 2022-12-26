@@ -1,4 +1,4 @@
-﻿public abstract class ActionEntity : IInteractional
+﻿using UnityEngine;public abstract class ActionEntity : MonoBehaviour, IInteractional
 {
     protected ActionEntity()
     {

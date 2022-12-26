@@ -20,6 +20,7 @@ public class Hero : Entity
     private SpriteRenderer _sprite;
 
     public int Direction => _sprite.flipX ? -1 : 1;
+    public bool action = true;
 
     private void Awake()
     {
