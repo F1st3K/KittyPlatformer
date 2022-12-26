@@ -7,19 +7,13 @@ namespace Interfaces
     {
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
-        [SerializeField] private Weapon weapon;
-        
 
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _sprite;
         
         public float MoveSpeed => speed;
         public float JumpForce => jumpForce;
-        public IWeaponer Weapon => weapon;
         
-        
-        
-
         public void Move(Vector3 direction, float mullSpeed)
         {
             if (mullSpeed < 0)
@@ -44,11 +38,6 @@ namespace Interfaces
         public bool CheckStayGround()
         {
             return true;
-        }
-        
-        public void Attack()
-        {
-            weapon.Fire();
         }
 
         private void Awake()
