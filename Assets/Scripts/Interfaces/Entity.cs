@@ -8,7 +8,6 @@ namespace Interfaces
     {
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
-        [SerializeField] private float groundDistance;
 
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _sprite;
@@ -37,12 +36,14 @@ namespace Interfaces
             _rigidbody2D.velocity =  Vector2.up * currentJumpForce;
         }
 
-        public bool CheckStayGround()
+        public bool CheckStayGround(float distance)
         {
+            if (distance < 0)
+                throw new Exception("groundDistance should be greater than zero");
             RaycastHit2D rayOnGround = Physics2D.Raycast(transform.position,
-                                                         Vector2.down, 
-                                                         groundDistance);
-            return true;
+                                                         Vector2.down,
+                                                         distance);
+            return rayOnGround.collider;
         }
 
         private void Awake()
