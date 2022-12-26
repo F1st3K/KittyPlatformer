@@ -3,6 +3,7 @@
     public interface ILiving
     {
         public int HealthPoint { get; }
+        public int MaxHealthPoint { get; }
         public bool IsAlive => HealthPoint > 0;
 
         public void GetDamage(int value);
