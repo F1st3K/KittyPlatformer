@@ -1,7 +1,8 @@
 ﻿using System;
+using Interfaces;
 using UnityEngine;
 
-namespace Interfaces
+namespace Base
 {
     [RequireComponent(typeof(Rigidbody), typeof(BoxCollider2D))]
     public abstract class Entity : MonoBehaviour, IMovable, IJumper

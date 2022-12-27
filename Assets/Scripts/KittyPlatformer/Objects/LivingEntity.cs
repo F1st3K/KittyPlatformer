@@ -1,7 +1,9 @@
 ﻿using System;
+using Base;
+using Interfaces;
 using UnityEngine;
 
-namespace Interfaces
+namespace Objects
 {
     public class LivingEntity : Entity, ILiving
     {

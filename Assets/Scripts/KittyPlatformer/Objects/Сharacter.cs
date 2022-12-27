@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using UnityEngine;
+using Base;
 
-namespace Interfaces
+namespace Objects
 {
     public sealed class Сharacter : LivingEntity, IAttacking, IStateChanger
     {

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Interfaces;
 using UnityEngine;
 
-namespace Interfaces
+namespace Base
 {
     public abstract class SwitchEntity : MonoBehaviour, ISwitching
     {

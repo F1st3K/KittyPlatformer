@@ -1,4 +1,4 @@
-﻿namespace Interfaces
+﻿namespace Base
 {
     public abstract class Controller
     {

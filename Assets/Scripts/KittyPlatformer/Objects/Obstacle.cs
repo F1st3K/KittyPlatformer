@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using Base;
+using Interfaces;
+using UnityEngine;
 
-namespace Interfaces
+namespace Objects
 {
-    public sealed class Enemy : LivingEntity, IAttacking
+    public class Obstacle : Entity, IAttacking
     {
         [SerializeField] private Weapon weapon;
         

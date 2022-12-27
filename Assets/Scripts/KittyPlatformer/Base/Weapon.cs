@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using UnityEngine;
 
-namespace Interfaces
+namespace Base
 {
     public abstract class Weapon : MonoBehaviour, IWeaponer
     {
