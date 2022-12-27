@@ -2,7 +2,7 @@
 
 namespace Interfaces
 {
-    public class Obstacle : Entity, IAttacking
+    public sealed class Enemy : LivingEntity, IAttacking
     {
         [SerializeField] private Weapon weapon;
         

@@ -7,10 +7,7 @@ namespace Interfaces
         [SerializeField] private int damage;
         
         public int Damage => damage;
-
-        public void Fire()
-        {
-            
-        }
+        
+        public void Fire(Vector2 direction, float power){}
     }
 }

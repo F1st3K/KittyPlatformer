@@ -2,15 +2,15 @@
 
 namespace Interfaces
 {
-    public abstract class Attacker : LivingEntity, IAttacking
+    public sealed class Сharacter : LivingEntity, IAttacking
     {
         [SerializeField] private Weapon weapon;
         
         public IWeaponer Weapon => weapon;
         
-        public void Attack()
+        public void Attack(Vector2 direction, float power)
         {
-            weapon.Fire();
+            weapon.Fire(direction, power);
         }
     }
 }
