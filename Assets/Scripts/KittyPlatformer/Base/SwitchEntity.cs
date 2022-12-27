@@ -1,7 +1,7 @@
-﻿using Interfaces;
+﻿using KittyPlatformer.Interfaces;
 using UnityEngine;
 
-namespace Base
+namespace KittyPlatformer.Base
 {
     public abstract class SwitchEntity : MonoBehaviour, ISwitching
     {

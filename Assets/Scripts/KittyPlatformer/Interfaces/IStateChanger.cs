@@ -1,6 +1,4 @@
-﻿using Unity.VisualScripting;
-
-namespace Interfaces
+﻿namespace KittyPlatformer.Interfaces
 {
     public interface IStateChanger
     {

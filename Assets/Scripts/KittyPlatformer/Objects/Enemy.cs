@@ -1,9 +1,8 @@
-﻿using Base;
-using Interfaces;
+﻿using KittyPlatformer.Base;
+using KittyPlatformer.Interfaces;
 using UnityEngine;
 
-
-namespace Objects
+namespace KittyPlatformer.Objects
 {
     public sealed class Enemy : LivingEntity, IAttacking
     {

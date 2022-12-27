@@ -1,8 +1,8 @@
 ﻿using System;
-using Interfaces;
+using KittyPlatformer.Interfaces;
 using UnityEngine;
 
-namespace Base
+namespace KittyPlatformer.Base
 {
     [RequireComponent(typeof(Rigidbody), typeof(BoxCollider2D))]
     public abstract class Entity : MonoBehaviour, IMovable, IJumper

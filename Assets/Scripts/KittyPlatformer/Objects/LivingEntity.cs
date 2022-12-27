@@ -1,9 +1,9 @@
 ﻿using System;
-using Base;
-using Interfaces;
+using KittyPlatformer.Base;
+using KittyPlatformer.Interfaces;
 using UnityEngine;
 
-namespace Objects
+namespace KittyPlatformer.Objects
 {
     public class LivingEntity : Entity, ILiving
     {

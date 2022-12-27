@@ -1,4 +1,4 @@
-﻿namespace Base
+﻿namespace KittyPlatformer.Base
 {
     public abstract class Controller
     {

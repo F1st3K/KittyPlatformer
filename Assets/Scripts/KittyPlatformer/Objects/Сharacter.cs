@@ -1,8 +1,8 @@
-﻿using Interfaces;
+﻿using KittyPlatformer.Base;
+using KittyPlatformer.Interfaces;
 using UnityEngine;
-using Base;
 
-namespace Objects
+namespace KittyPlatformer.Objects
 {
     public sealed class Сharacter : LivingEntity, IAttacking, IStateChanger
     {

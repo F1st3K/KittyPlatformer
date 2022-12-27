@@ -1,4 +1,4 @@
-﻿namespace Interfaces
+﻿namespace KittyPlatformer.Interfaces
 {
     public interface IJumper
     {

@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace Interfaces
+﻿namespace KittyPlatformer.Interfaces
 {
     public interface IWeaponer
     {
