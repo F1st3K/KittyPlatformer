@@ -1,5 +1,4 @@
-﻿using JoysticScripts.Base;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace JoysticScripts.Joysticks

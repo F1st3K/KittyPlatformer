@@ -1,11 +1,8 @@
-﻿using System;
-using KittyPlatformer.Base;
+﻿using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
-using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
-namespace JoysticScripts.Base
+namespace KittyPlatformer.Controllers
 {
     public class AttachmentController : MonoBehaviour
     {

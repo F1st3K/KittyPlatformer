@@ -1,11 +1,8 @@
-﻿using System;
-using JoysticScripts.Joysticks;
-using KittyPlatformer.Base;
+﻿using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
-using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 
-namespace JoysticScripts.Base
+namespace KittyPlatformer.Controllers
 {
     public class MovementController : MonoBehaviour
     {
