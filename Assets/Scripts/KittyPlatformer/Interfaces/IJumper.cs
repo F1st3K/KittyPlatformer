@@ -5,6 +5,6 @@
         public float JumpForce { get; }
     
         public void Jump(float mullForce);
-        public bool CheckStayGround(float distance);
+        public bool CheckStayGround();
     }
 }

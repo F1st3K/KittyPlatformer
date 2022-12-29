@@ -4,15 +4,17 @@ using UnityEngine;
 
 namespace KittyPlatformer.Base
 {
-    [RequireComponent(typeof(Rigidbody), typeof(BoxCollider2D))]
+    [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public abstract class Entity : MonoBehaviour, IMovable, IJumper
     {
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
+        [SerializeField] private Transform pointJump;
 
         private Rigidbody2D _rigidbody2D;
+        private Collider2D _collider2D;
         private SpriteRenderer _sprite;
-        
+
         public float MoveSpeed => speed;
         public float JumpForce => jumpForce;
         
@@ -37,19 +39,18 @@ namespace KittyPlatformer.Base
             _rigidbody2D.velocity =  Vector2.up * currentJumpForce;
         }
 
-        public bool CheckStayGround(float distance)
+        public bool CheckStayGround()
         {
-            if (distance < 0)
-                throw new Exception("groundDistance should be greater than zero");
-            RaycastHit2D rayOnGround = Physics2D.Raycast(transform.position,
-                                                         Vector2.down,
-                                                         distance);
+            Debug.Log(-_collider2D.transform.position.y + _collider2D.bounds.min.y);
+            RaycastHit2D rayOnGround = Physics2D.Raycast(pointJump.position,
+                                                         Vector2.down, 0);
             return rayOnGround.collider;
         }
 
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _collider2D = GetComponent<Collider2D>();
             _sprite = GetComponentInChildren<SpriteRenderer>();
         }
     }

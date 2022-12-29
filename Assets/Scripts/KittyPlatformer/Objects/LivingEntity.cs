@@ -3,7 +3,7 @@ using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
 
-namespace KittyPlatformer.Objects
+namespace KittyPlatformer.Objects 
 {
     public class LivingEntity : Entity, ILiving
     {
