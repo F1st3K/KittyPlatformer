@@ -7,29 +7,32 @@ using UnityEngine;
 
 namespace JoysticScripts.Base
 {
-    public class JoystickMovement : MonoBehaviour
+    public class MovementController : MonoBehaviour
     {
         [SerializeField] private Entity movingEntity;
         [SerializeField] private Joystick joystick;
+        [SerializeField] private float idling;
 
         private bool IsMove()
         {
-            bool condition = joystick.Horizontal != 0;
+            bool condition = joystick.Horizontal != 0 &&
+                             joystick.GetPower() > idling;
             return condition;
         }
         
         private bool IsJump()
         {
-            bool condition = joystick.GetCurrentQuarter() == Vector2.one;
+            bool condition = joystick.GetCurrentQuarter() == Vector2.one &&
+                             joystick.GetPower() > idling;
             return condition;
         }
         
         private void Update()
         {
             if (IsMove())
-                ((IMovable)movingEntity).Move(Vector3.right * joystick.Horizontal, joystick.GetPower());
+                (movingEntity as IMovable)?.Move(Vector3.right * joystick.Horizontal, joystick.GetPower());
             if (IsJump() && ((IJumper)movingEntity).CheckStayGround())
-                ((IJumper)movingEntity).Jump(joystick.GetPower());
+                (movingEntity as IJumper)?.Jump(joystick.GetPower());
         }
     }
 }
