@@ -41,7 +41,6 @@ namespace KittyPlatformer.Base
 
         public bool CheckStayGround()
         {
-            Debug.Log(-_collider2D.transform.position.y + _collider2D.bounds.min.y);
             RaycastHit2D rayOnGround = Physics2D.Raycast(pointJump.position,
                                                          Vector2.down, 0);
             return rayOnGround.collider;
