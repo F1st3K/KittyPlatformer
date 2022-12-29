@@ -34,14 +34,8 @@ namespace KittyPlatformer.Base
                 changer.SetSwitchingEntity(null);
         }
 
-        private protected virtual void OnActivate()
-        {
+        private protected virtual void OnActivate(){}
         
-        }
-        
-        private protected virtual void OnDeActivate()
-        {
-        
-        }
+        private protected virtual void OnDeActivate(){}
     }
 }
