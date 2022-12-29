@@ -9,23 +9,23 @@ namespace KittyPlatformer.Objects
         [SerializeField] private Weapon weapon;
         
         public IWeaponer Weapon => weapon;
-        public ISwitching SwitchingEntity { get; private set; }
+        public IStateVariable StateVariableEntity { get; private set; }
         
         public void Attack(Vector2 direction, float power)
         {
             weapon.Fire(direction, power);
         }
 
-        public void SetSwitchingEntity(ISwitching obj)
+        public void SetSwitchingEntity(IStateVariable obj)
         {
-            SwitchingEntity = obj;
+            StateVariableEntity = obj;
         }
 
         public void ToggleCurrentSwitchingEntity()
         {
-            if (SwitchingEntity.IsActivate)
-                SwitchingEntity.DeActivate();
-            else SwitchingEntity.Activate();
+            if (StateVariableEntity.IsActivate)
+                StateVariableEntity.DeActivate();
+            else StateVariableEntity.Activate();
         }
     }
 }

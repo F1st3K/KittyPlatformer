@@ -23,7 +23,7 @@ namespace KittyPlatformer.Controllers
 
         private void Update()
         {
-            button.enabled = (attachingEntity as IStateChanger)?.SwitchingEntity is not null;
+            button.enabled = (attachingEntity as IStateChanger)?.StateVariableEntity is not null;
         }
     }
 }

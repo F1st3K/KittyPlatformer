@@ -1,6 +1,6 @@
 ﻿namespace KittyPlatformer.Interfaces
 {
-    public interface ISwitching
+    public interface IStateVariable
     {
         public bool IsActivate { get; }
         

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace KittyPlatformer.Base
 {
-    public abstract class SwitchEntity : MonoBehaviour, ISwitching
+    public abstract class StateVariableEntity : MonoBehaviour, IStateVariable
     {
         [SerializeField] private bool isActivate;
         public bool IsActivate => isActivate;
@@ -23,14 +23,14 @@ namespace KittyPlatformer.Base
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out IStateChanger changer) &&
-                changer.SwitchingEntity is null)
+                changer.StateVariableEntity is null)
                 changer.SetSwitchingEntity(this);
         }
         
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.TryGetComponent(out IStateChanger changer) &&
-                changer.SwitchingEntity is not null)
+                changer.StateVariableEntity is not null)
                 changer.SetSwitchingEntity(null);
         }
 

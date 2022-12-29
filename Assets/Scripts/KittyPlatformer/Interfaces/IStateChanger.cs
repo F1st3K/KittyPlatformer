@@ -2,9 +2,9 @@
 {
     public interface IStateChanger
     {
-        public ISwitching SwitchingEntity { get; }
+        public IStateVariable StateVariableEntity { get; }
 
-        public void SetSwitchingEntity(ISwitching obj);
+        public void SetSwitchingEntity(IStateVariable obj);
         public void ToggleCurrentSwitchingEntity();
     }
 }
