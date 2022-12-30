@@ -7,12 +7,8 @@ namespace KittyPlatformer.Objects
     {
         private protected override void OnActivate()
         {
-            Debug.Log("FINISH");
-        }
-        
-        private protected override void OnDeActivate()
-        {
-            Debug.Log("...Un? unfinished???");
+            Navigation.Instance.Finish();
+            DeActivate();
         }
     }
 }
