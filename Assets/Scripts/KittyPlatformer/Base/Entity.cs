@@ -46,7 +46,7 @@ namespace KittyPlatformer.Base
             return rayOnGround.collider;
         }
 
-        private void Awake()
+        private protected virtual void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();

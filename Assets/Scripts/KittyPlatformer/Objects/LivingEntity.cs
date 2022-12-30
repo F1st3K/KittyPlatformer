@@ -9,17 +9,11 @@ namespace KittyPlatformer.Objects
     {
         [SerializeField] private int maxHealthPoint;
 
-        public LivingEntity()
-        {
-            HealthPoint = maxHealthPoint;
-            HealthChanged += CheckDeath;
-        }
-
         public int MaxHealthPoint => maxHealthPoint;
 
         public int HealthPoint { get; private set; }
 
-        public event Action HealthChanged; 
+        public event Action HealthChanged;
 
         public void GetDamage(int value)
         {
@@ -44,6 +38,13 @@ namespace KittyPlatformer.Objects
         public virtual void OnHealthChanged()
         {
             HealthChanged?.Invoke();
+        }
+
+        private protected override void Awake()
+        {
+            base.Awake();
+            HealthPoint = maxHealthPoint;
+            HealthChanged += CheckDeath;
         }
 
         private void CheckDeath()
