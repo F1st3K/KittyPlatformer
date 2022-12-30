@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 7318721110541517945}
   - component: {fileID: 7318721110541517946}
   - component: {fileID: 7318721110541517947}
+  - component: {fileID: 207740925962327065}
   m_Layer: 0
   m_Name: RunnerEnemy
   m_TagString: Untagged
@@ -180,6 +181,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &207740925962327065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7318721110637484423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac4f0123d864602a35aa0d89e1843fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  jumpForce: 0
+  pointJump: {fileID: 0}
+  maxHealthPoint: 0
+  weapon: {fileID: 0}
 --- !u!1 &7318721110762108530
 GameObject:
   m_ObjectHideFlags: 0

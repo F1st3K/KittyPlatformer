@@ -1,4 +1,5 @@
-﻿using KittyPlatformer.Base;
+﻿using System;
+using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
 
@@ -26,6 +27,11 @@ namespace KittyPlatformer.Objects
             if (StateVariableEntity.IsActivate)
                 StateVariableEntity.DeActivate();
             else StateVariableEntity.Activate();
+        }
+
+        private void OnDestroy()
+        {
+            Navigation.Instance.Die();
         }
     }
 }
