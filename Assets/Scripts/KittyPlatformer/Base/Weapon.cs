@@ -1,6 +1,8 @@
-﻿using System.Timers;
-using KittyPlatformer.Interfaces;
+﻿using KittyPlatformer.Interfaces;
+using KittyPlatformer.Objects;
+using Unity.VisualScripting;
 using UnityEngine;
+using Timer = System.Timers.Timer;
 
 namespace KittyPlatformer.Base
 {
@@ -10,6 +12,7 @@ namespace KittyPlatformer.Base
         [SerializeField] private protected double reloadTime;
         private protected Timer ReloadingTimer;
         private protected bool IsCouldown;
+        private protected LivingEntity Owner;
 
         public int Damage => damage;
         
@@ -17,6 +20,7 @@ namespace KittyPlatformer.Base
 
         private void Awake()
         {
+            Owner = ComponentHolderProtocol.GetComponentInParent<LivingEntity>(gameObject);
             ReloadingTimer = new Timer(reloadTime);
             ReloadingTimer.Elapsed += (args, e) => 
                 { IsCouldown = true; ReloadingTimer.Stop();};

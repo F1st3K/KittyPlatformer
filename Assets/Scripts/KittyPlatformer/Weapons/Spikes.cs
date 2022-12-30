@@ -14,7 +14,6 @@ namespace KittyPlatformer.Weapons
                 IsCouldown)
             {
                 entity.GetDamage(Damage);
-                Debug.Log(entity.HealthPoint);
                 IsCouldown = false;
                 ReloadingTimer.Start();
             }
