@@ -1,5 +1,4 @@
 ﻿using KittyPlatformer.Base;
-using UnityEngine;
 
 namespace KittyPlatformer.Objects
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using KittyPlatformer.Interfaces;
+﻿using KittyPlatformer.Interfaces;
 using UnityEngine;
 
 namespace KittyPlatformer.Objects

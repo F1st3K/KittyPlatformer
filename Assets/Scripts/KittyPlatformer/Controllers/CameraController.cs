@@ -1,5 +1,4 @@
-﻿using KittyPlatformer.Objects;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace KittyPlatformer.Controllers
 {

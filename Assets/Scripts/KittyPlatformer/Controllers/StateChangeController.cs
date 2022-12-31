@@ -1,5 +1,4 @@
-﻿using System;
-using KittyPlatformer.Base;
+﻿using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;

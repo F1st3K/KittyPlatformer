@@ -1,7 +1,6 @@
 ﻿using System;
 using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 
 namespace KittyPlatformer.Weapons
