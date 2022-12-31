@@ -14,12 +14,14 @@ namespace KittyPlatformer.Controllers
 
         private void Update()
         {
-            Vector3 position = player.position;
-            _currentPosition.x = position.x + relativePositionX;
-            _currentPosition.y = position.y + relativePositionY;
-            _currentPosition.z = indexZ;
-
-            transform.position = Vector3.Lerp(transform.position, _currentPosition, Time.deltaTime);
+            if (player)
+            {
+                Vector3 position = player.position;
+                _currentPosition.x = position.x + relativePositionX;
+                _currentPosition.y = position.y + relativePositionY;
+                _currentPosition.z = indexZ;
+                transform.position = Vector3.Lerp(transform.position, _currentPosition, Time.deltaTime);
+            }
         }
     }
 }

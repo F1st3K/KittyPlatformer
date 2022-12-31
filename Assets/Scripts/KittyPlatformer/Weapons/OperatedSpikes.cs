@@ -14,8 +14,7 @@ namespace KittyPlatformer.Weapons
             Collider2D [] attackArea =  CreateAttackArea();
             foreach (var colliders in attackArea)
             {
-                if (colliders.gameObject.TryGetComponent(out ILiving entity) &&
-                    entity != (ILiving)Owner)
+                if (colliders.gameObject.TryGetComponent(out ILiving entity))
                     entity.GetDamage(Damage);
             }
         }
