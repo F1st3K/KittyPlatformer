@@ -19,7 +19,6 @@ namespace KittyPlatformer.Weapons
                     entity != (ILiving)Owner &&
                     IsCouldown)
                 {
-                    Debug.Log(power);
                     entity.GetDamage(Convert.ToInt32(Damage * power));
                     IsCouldown = false;
                     ReloadingTimer.Start();

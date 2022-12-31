@@ -21,7 +21,7 @@ namespace KittyPlatformer.Controllers
         {
             if (IsAttack())
             {
-                (attachingEntity as IAttacking)?.Attack(joystick.GetCurrentVector(), joystick.LastPossiblePower);
+                (attachingEntity as IAttacking)?.Attack(joystick.LastPossibleVector, joystick.LastPossiblePower);
                 joystick.ResetPower();
             }
         }
