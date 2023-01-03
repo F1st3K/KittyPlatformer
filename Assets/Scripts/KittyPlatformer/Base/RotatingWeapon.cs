@@ -16,6 +16,7 @@ namespace KittyPlatformer.Base
             AttackPoint = CreateAttackPoint(direction);
             _sprite.transform.position = AttackPoint;
             _sprite.transform.rotation = Quaternion.Euler(0, 0, CreateAttackAngle(direction));
+            _sprite.flipX = _sprite.transform.rotation.z > 0;
         }
         
         private protected Vector2 CreateAttackPoint(Vector2 direction)
