@@ -1,5 +1,6 @@
 ﻿using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
+using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace KittyPlatformer.Controllers
@@ -12,16 +13,25 @@ namespace KittyPlatformer.Controllers
 
         private bool IsAttack()
         {
-            bool condition = joystick.GetPower() < idling &&
-                             joystick.LastPossiblePower > idling;
-            return condition;
+            return joystick.GetPower() < idling && 
+                   joystick.LastPossiblePower > idling;
+        }
+
+        private bool IsAim()
+        {
+            return joystick.LastPossibleVector != joystick.GetCurrentVector();
         }
         
         private void Update()
         {
+            if (IsAim())
+            {
+                (attachingEntity as IAttacker)?.TakeAim(joystick.GetCurrentVector());
+                joystick.ResetVector();
+            }
             if (IsAttack())
             {
-                (attachingEntity as IAttacking)?.Attack(joystick.LastPossibleVector, joystick.LastPossiblePower);
+                (attachingEntity as IAttacker)?.Attack(joystick.LastPossiblePower);
                 joystick.ResetPower();
             }
         }

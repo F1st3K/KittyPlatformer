@@ -2,6 +2,7 @@
 using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace KittyPlatformer.Weapons
 {
@@ -10,10 +11,11 @@ namespace KittyPlatformer.Weapons
         [SerializeField] private float innerRadius;
         [SerializeField] private float range;
         
-        public override void Fire(Vector2 direction, float power)
+        public override void Fire(float power)
         {
-            Vector2 attackPoint = CreateAttackPoint(direction);
-            Collider2D [] attackArea =  CreateAttackArea(attackPoint);
+            if (power <= 0)
+                return;
+            Collider2D [] attackArea =  CreateAttackArea(AttackPoint);
             foreach (var colliders in attackArea)
             {
                 if (colliders.gameObject.TryGetComponent(out ILiving entity) &&
@@ -25,6 +27,13 @@ namespace KittyPlatformer.Weapons
                     ReloadingTimer.Start();
                 }
             }
+        }
+
+        public override void Rotate(Vector2 direction)
+        {
+            if (direction == Vector2.zero)
+                return;
+            AttackPoint = CreateAttackPoint(direction);
         }
 
         private Collider2D[] CreateAttackArea(Vector2 position)

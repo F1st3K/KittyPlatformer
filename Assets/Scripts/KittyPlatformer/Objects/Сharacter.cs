@@ -4,16 +4,21 @@ using UnityEngine;
 
 namespace KittyPlatformer.Objects
 {
-    public sealed class Сharacter : LivingEntity, IAttacking, IStateChanger
+    public sealed class Сharacter : LivingEntity, IAttacker, IStateChanger
     {
         [SerializeField] private Weapon weapon;
         
         public IWeaponer Weapon => weapon;
         public IStateVariable StateVariableEntity { get; private set; }
         
-        public void Attack(Vector2 direction, float power)
+        public void Attack(float power)
         {
-            weapon.Fire(direction, power);
+            weapon.Fire(power);
+        }
+        
+        public void TakeAim(Vector2 direction)
+        {
+            weapon.Rotate(direction);
         }
 
         public void SetSwitchingEntity(IStateVariable obj)

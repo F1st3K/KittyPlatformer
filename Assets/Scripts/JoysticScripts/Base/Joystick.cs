@@ -156,6 +156,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
             LastPossiblePower = GetPower();
         }
 
+        public void ResetVector()
+        {
+            LastPossibleVector = GetCurrentVector();
+        }
+        
         public virtual void OnPointerUp(PointerEventData eventData)
         {
             LastPossiblePower = GetPower();

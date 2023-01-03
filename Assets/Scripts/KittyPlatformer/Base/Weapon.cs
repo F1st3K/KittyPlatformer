@@ -2,6 +2,7 @@
 using KittyPlatformer.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Timer = System.Timers.Timer;
 
 namespace KittyPlatformer.Base
@@ -12,11 +13,13 @@ namespace KittyPlatformer.Base
         [SerializeField] private protected double reloadTime;
         private protected Timer ReloadingTimer;
         private protected bool IsCouldown;
+        private protected Vector2 AttackPoint;
         private protected LivingEntity Owner;
 
         public int Damage => damage;
-        
-        public virtual void Fire(Vector2 direction, float power){}
+
+        public abstract void Fire(float power);
+        public abstract void Rotate(Vector2 direction);
 
         private void Awake()
         {

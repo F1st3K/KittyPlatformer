@@ -4,15 +4,20 @@ using UnityEngine;
 
 namespace KittyPlatformer.Objects
 {
-    public sealed class Enemy : LivingEntity, IAttacking
+    public sealed class Enemy : LivingEntity, IAttacker
     {
         [SerializeField] private Weapon weapon;
         
         public IWeaponer Weapon => weapon;
         
-        public void Attack(Vector2 direction, float power)
+        public void Attack(float power)
         {
-            weapon.Fire(direction, power);
+            weapon.Fire(power);
+        }
+        
+        public void TakeAim(Vector2 direction)
+        {
+            weapon.Rotate(direction);
         }
     }
 }

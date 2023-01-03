@@ -9,9 +9,9 @@ namespace KittyPlatformer.Weapons
     {
         [SerializeField] private float radius;
         
-        public override void Fire(Vector2 direction, float power)
+        public override void Fire(float power)
         {
-            Collider2D [] attackArea =  CreateAttackArea(transform.position);
+            Collider2D [] attackArea =  CreateAttackArea(AttackPoint);
             foreach (var colliders in attackArea)
             {
                 if (colliders.gameObject.TryGetComponent(out ILiving entity) &&
@@ -23,6 +23,11 @@ namespace KittyPlatformer.Weapons
                     ReloadingTimer.Start();
                 }
             }
+        }
+
+        public override void Rotate(Vector2 direction)
+        {
+            
         }
 
         private Collider2D[] CreateAttackArea(Vector2 position)
