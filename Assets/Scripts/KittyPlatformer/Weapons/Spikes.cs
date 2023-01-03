@@ -1,16 +1,18 @@
-﻿using KittyPlatformer.Base;
+﻿using System;
+using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace KittyPlatformer.Weapons
 {
     public class Spikes : Weapon
     {
-        private bool _isEnabled;
+        [SerializeField] private bool isEnabled;
         
         public override void Fire(float power)
         {
-            _isEnabled = !_isEnabled;
+            isEnabled = !isEnabled;
         }
 
         public override void Rotate(Vector2 direction)
@@ -20,7 +22,7 @@ namespace KittyPlatformer.Weapons
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            if (_isEnabled &&
+            if (isEnabled &&
                 IsCouldown &&
                 other.gameObject.TryGetComponent(out ILiving entity))
             {

@@ -6,9 +6,8 @@ using UnityEngine.UIElements;
 
 namespace KittyPlatformer.Weapons
 {
-    public class Sword : Weapon
+    public class Sword : RotatingWeapon
     {
-        [SerializeField] private float innerRadius;
         [SerializeField] private float range;
         
         public override void Fire(float power)
@@ -31,9 +30,7 @@ namespace KittyPlatformer.Weapons
 
         public override void Rotate(Vector2 direction)
         {
-            if (direction == Vector2.zero)
-                return;
-            AttackPoint = CreateAttackPoint(direction);
+            base.Rotate(direction);
         }
 
         private Collider2D[] CreateAttackArea(Vector2 position)
@@ -41,24 +38,5 @@ namespace KittyPlatformer.Weapons
             return Physics2D.OverlapCircleAll(position, range);
         }
 
-        private Vector2 CreateAttackPoint(Vector2 direction)
-        {
-            if (direction == Vector2.zero)
-                throw new InvalidOperationException();
-            double d = Math.Sqrt(direction.x * direction.x + direction.y * direction.y);
-            var point = new Vector2
-            {
-                x = Convert.ToSingle(direction.x * innerRadius / d),
-                y = Convert.ToSingle(direction.y * innerRadius / d)
-            };
-            point += (Vector2)transform.position;
-            return point;
-        }
-        
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.DrawWireSphere(transform.position, innerRadius);
-            Gizmos.DrawWireSphere(CreateAttackPoint(Vector2.right), range);
-        }
     }
 }

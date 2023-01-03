@@ -21,7 +21,7 @@ namespace KittyPlatformer.Base
         public abstract void Fire(float power);
         public abstract void Rotate(Vector2 direction);
 
-        private void Awake()
+        private protected virtual void Awake()
         {
             Owner = ComponentHolderProtocol.GetComponentInParent<LivingEntity>(gameObject);
             ReloadingTimer = new Timer(reloadTime);
