@@ -28,15 +28,15 @@ namespace KittyPlatformer.Weapons
             }
         }
 
-        public override void Rotate(Vector2 direction)
-        {
-            base.Rotate(direction);
-        }
-
         private Collider2D[] CreateAttackArea(Vector2 position)
         {
             return Physics2D.OverlapCircleAll(position, range);
         }
 
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireSphere(transform.position, innerRadius);
+            Gizmos.DrawWireSphere(CreateAttackPoint(Vector2.right), range);
+        }
     }
 }

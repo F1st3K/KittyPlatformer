@@ -5,7 +5,7 @@ namespace KittyPlatformer.Base
 {
     public abstract class RotatingWeapon : Weapon
     {
-        [SerializeField] private float innerRadius;
+        [SerializeField] private protected float innerRadius;
         
         private SpriteRenderer _sprite;
         
@@ -14,9 +14,11 @@ namespace KittyPlatformer.Base
             if (direction == Vector2.zero)
                 return;
             AttackPoint = CreateAttackPoint(direction);
+            _sprite.transform.position = AttackPoint;
+            _sprite.transform.rotation = Quaternion.Euler(0, 0, CreateAttackAngle(direction));
         }
         
-        private Vector2 CreateAttackPoint(Vector2 direction)
+        private protected Vector2 CreateAttackPoint(Vector2 direction)
         {
             if (direction == Vector2.zero)
                 throw new InvalidOperationException();
@@ -29,17 +31,14 @@ namespace KittyPlatformer.Base
             point += (Vector2)transform.position;
             return point;
         }
+        
+        private float CreateAttackAngle(Vector2 direction) 
+            => (float)(Math.Atan2(direction.x, direction.y) * -180 / Math.PI);
 
         private protected override void Awake()
         {
             base.Awake();
             _sprite = GetComponentInChildren<SpriteRenderer>();
-        }
-        
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.DrawWireSphere(transform.position, innerRadius);
-            Gizmos.DrawWireSphere(CreateAttackPoint(Vector2.right), 0.01f);
         }
     }
 }
