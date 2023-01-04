@@ -1,4 +1,5 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace KittyPlatformer.Base
@@ -29,7 +30,7 @@ namespace KittyPlatformer.Base
                 x = Convert.ToSingle(direction.x * innerRadius / d),
                 y = Convert.ToSingle(direction.y * innerRadius / d)
             };
-            point += (Vector2)transform.position;
+            point += (Vector2)this.GameObject().transform.position;
             return point;
         }
         
@@ -39,7 +40,7 @@ namespace KittyPlatformer.Base
         private protected override void Awake()
         {
             base.Awake();
-            _sprite = GetComponentInChildren<SpriteRenderer>();
+            _sprite = this.GetComponentInChildren<SpriteRenderer>();
         }
     }
 }

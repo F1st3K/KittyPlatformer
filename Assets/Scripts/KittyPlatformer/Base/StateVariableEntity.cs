@@ -6,6 +6,7 @@ namespace KittyPlatformer.Base
     public abstract class StateVariableEntity : MonoBehaviour, IStateVariable
     {
         [SerializeField] private bool isActivate;
+        private protected IStateChanger Entity;
         public bool IsActivate => isActivate;
 
         public void Activate()
@@ -24,7 +25,10 @@ namespace KittyPlatformer.Base
         {
             if (other.gameObject.TryGetComponent(out IStateChanger changer) &&
                 changer.StateVariableEntity is null)
+            {
+                Entity = changer;
                 changer.SetSwitchingEntity(this);
+            }
         }
         
         private void OnTriggerExit2D(Collider2D other)

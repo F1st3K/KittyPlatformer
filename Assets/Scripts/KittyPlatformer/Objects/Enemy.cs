@@ -19,5 +19,11 @@ namespace KittyPlatformer.Objects
         {
             weapon.Rotate(direction);
         }
+
+        public void ReplaceWeapon(Weapon obj)
+        {
+            if (obj is not null)
+                weapon = obj;
+        }
     }
 }
