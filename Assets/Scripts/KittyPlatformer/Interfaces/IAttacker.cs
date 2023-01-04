@@ -8,6 +8,6 @@ namespace KittyPlatformer.Interfaces
         public IWeaponer Weapon { get; }
         public void Attack(float power);
         public void TakeAim(Vector2 direction);
-        public void ReplaceWeapon(Weapon obj);
+        public Weapon ReplaceWeapon(Weapon obj);
     }
 }

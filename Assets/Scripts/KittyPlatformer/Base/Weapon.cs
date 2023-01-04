@@ -18,12 +18,17 @@ namespace KittyPlatformer.Base
 
         public int Damage => damage;
 
+        public void SetOwner()
+        {
+            Owner = ComponentHolderProtocol.GetComponentInParent<LivingEntity>(gameObject);
+        }
+
         public abstract void Fire(float power);
         public abstract void Rotate(Vector2 direction);
 
         private protected virtual void Awake()
         {
-            Owner = ComponentHolderProtocol.GetComponentInParent<LivingEntity>(gameObject);
+            SetOwner();
             ReloadingTimer = new Timer(reloadTime);
             ReloadingTimer.Elapsed += (args, e) => 
                 { IsCouldown = true; ReloadingTimer.Stop();};

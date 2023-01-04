@@ -20,10 +20,13 @@ namespace KittyPlatformer.Objects
             weapon.Rotate(direction);
         }
         
-        public void ReplaceWeapon(Weapon obj)
+        public Weapon ReplaceWeapon(Weapon obj)
         {
             if (obj is not null)
-                weapon = obj;
+            {
+                (weapon, obj) = (obj, weapon);
+            }
+            return obj;
         }
     }
 }

@@ -13,9 +13,7 @@ namespace KittyPlatformer.Weapons
         {
             if (Entity is IAttacker attacker)
             {
-                attacker.ReplaceWeapon(weapon);
-                if (attacker.Weapon is Weapon weaponry)
-                    weapon = (Weapon) weaponry;
+                weapon = attacker.ReplaceWeapon(weapon);
             }
             DeActivate();
         }

@@ -310,7 +310,7 @@ Transform:
   - {fileID: 5633385777069161011}
   - {fileID: 5633385776265593359}
   - {fileID: 5633385776800295630}
-  - {fileID: 8727782833853992205}
+  - {fileID: 771991977276890136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,7 +367,7 @@ MonoBehaviour:
   jumpForce: 13
   pointJump: {fileID: 5633385776265593359}
   maxHealthPoint: 10
-  weapon: {fileID: 3830381506994111510}
+  weapon: {fileID: 5080558516977587459}
 --- !u!1 &5633385777069161010
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &4452041963085156551
+--- !u!1001 &5647846198930178514
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -549,10 +549,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
---- !u!114 &3830381506994111510 stripped
+--- !u!224 &771991977276890136 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4960579394047073738, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
+  m_PrefabInstance: {fileID: 5647846198930178514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5080558516977587459 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 639769791632954577, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
-  m_PrefabInstance: {fileID: 4452041963085156551}
+  m_PrefabInstance: {fileID: 5647846198930178514}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -560,8 +565,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32e0939bff54137a92922b350bd40b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8727782833853992205 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4960579394047073738, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
-  m_PrefabInstance: {fileID: 4452041963085156551}
-  m_PrefabAsset: {fileID: 0}

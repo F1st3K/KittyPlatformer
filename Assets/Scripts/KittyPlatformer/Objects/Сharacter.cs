@@ -1,5 +1,6 @@
 ﻿using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace KittyPlatformer.Objects
@@ -21,10 +22,20 @@ namespace KittyPlatformer.Objects
             weapon.Rotate(direction);
         }
 
-        public void ReplaceWeapon(Weapon obj)
+        public Weapon ReplaceWeapon(Weapon obj)
         {
             if (obj is not null)
-                weapon = obj;
+            {
+                (weapon.transform.position, obj.transform.position) =
+                    (obj.transform.position, weapon.transform.position);
+                weapon.Rotate(Vector2.right);
+                Transform parent = obj.transform.parent;
+                obj.transform.SetParent(weapon.transform.parent);
+                weapon.transform.parent = parent;
+                (weapon, obj) = (obj, weapon);
+                weapon.SetOwner();
+            }
+            return obj;
         }
 
         public void SetSwitchingEntity(IStateVariable obj)
