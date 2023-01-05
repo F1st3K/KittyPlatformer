@@ -2,7 +2,6 @@
 using KittyPlatformer.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Timer = System.Timers.Timer;
 
 namespace KittyPlatformer.Base
@@ -17,7 +16,7 @@ namespace KittyPlatformer.Base
         private protected LivingEntity Owner;
 
         public int Damage => damage;
-        public Vector2 RotationVector2 { get; }
+        public Vector2 RotationVector2 { get; private set; }
         public void SetOwner()
         {
             Owner = ComponentHolderProtocol.GetComponentInParent<LivingEntity>(gameObject);
