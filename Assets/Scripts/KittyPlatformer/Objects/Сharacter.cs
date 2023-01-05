@@ -20,6 +20,7 @@ namespace KittyPlatformer.Objects
         public void TakeAim(Vector2 direction)
         {
             weapon.Rotate(direction);
+            Sprite.flipX = ((RotatingWeapon) weapon).RotationVector2.x < 0;
         }
 
         public Weapon ReplaceWeapon(Weapon obj)
@@ -28,10 +29,10 @@ namespace KittyPlatformer.Objects
             {
                 (weapon.transform.position, obj.transform.position) =
                     (obj.transform.position, weapon.transform.position);
+                obj.Rotate(((RotatingWeapon) weapon).RotationVector2);
                 weapon.Rotate(Vector2.right);
-                Transform parent = obj.transform.parent;
-                obj.transform.SetParent(weapon.transform.parent);
-                weapon.transform.parent = parent;
+                (obj.transform.parent, weapon.transform.parent) = 
+                    (weapon.transform.parent, obj.transform.parent);
                 (weapon, obj) = (obj, weapon);
                 weapon.SetOwner();
             }

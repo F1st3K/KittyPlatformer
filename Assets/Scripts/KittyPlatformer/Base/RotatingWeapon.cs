@@ -9,11 +9,13 @@ namespace KittyPlatformer.Base
         [SerializeField] private protected float innerRadius;
         
         private SpriteRenderer _sprite;
-        
+        public Vector2 RotationVector2 { get; private set; }
+
         public override void Rotate(Vector2 direction)
         {
             if (direction == Vector2.zero)
                 return;
+            RotationVector2 = direction;
             AttackPoint = CreateAttackPoint(direction);
             _sprite.transform.position = AttackPoint;
             _sprite.transform.rotation = Quaternion.Euler(0, 0, CreateAttackAngle(direction));
@@ -40,7 +42,8 @@ namespace KittyPlatformer.Base
         private protected override void Awake()
         {
             base.Awake();
-            _sprite = this.GetComponentInChildren<SpriteRenderer>();
+            _sprite = GetComponentInChildren<SpriteRenderer>();
+            Rotate(Vector2.right);
         }
     }
 }

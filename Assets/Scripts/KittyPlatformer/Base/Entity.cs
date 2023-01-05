@@ -11,9 +11,9 @@ namespace KittyPlatformer.Base
         [SerializeField] private float jumpForce;
         [SerializeField] private Transform pointJump;
 
-        private Rigidbody2D _rigidbody2D;
-        private Collider2D _collider2D;
-        private SpriteRenderer _sprite;
+        private protected Rigidbody2D Rigidbody2D;
+        private protected Collider2D Collider2D;
+        private protected SpriteRenderer Sprite;
 
         public float MoveSpeed => speed;
         public float JumpForce => jumpForce;
@@ -28,7 +28,7 @@ namespace KittyPlatformer.Base
                                             position+direction,
                                             currentSpeed*Time.deltaTime);
             transform.position = position;
-            _sprite.flipX = direction.x < 0.0f;
+            Sprite.flipX = direction.x < 0.0f;
         }
 
         public void Jump(float mullForce)
@@ -36,7 +36,7 @@ namespace KittyPlatformer.Base
             if (mullForce < 0)
                 throw new Exception("mullForce should be greater than zero");
             float currentJumpForce = jumpForce * mullForce;
-            _rigidbody2D.velocity =  Vector2.up * currentJumpForce;
+            Rigidbody2D.velocity =  Vector2.up * currentJumpForce;
         }
 
         public bool CheckStayGround()
@@ -48,9 +48,9 @@ namespace KittyPlatformer.Base
 
         private protected virtual void Awake()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
-            _collider2D = GetComponent<Collider2D>();
-            _sprite = GetComponentInChildren<SpriteRenderer>();
+            Rigidbody2D = GetComponent<Rigidbody2D>();
+            Collider2D = GetComponent<Collider2D>();
+            Sprite = GetComponentInChildren<SpriteRenderer>();
         }
     }
 }

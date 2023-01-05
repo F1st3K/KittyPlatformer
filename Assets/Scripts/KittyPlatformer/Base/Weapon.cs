@@ -17,7 +17,7 @@ namespace KittyPlatformer.Base
         private protected LivingEntity Owner;
 
         public int Damage => damage;
-
+        public Vector2 RotationVector2 { get; }
         public void SetOwner()
         {
             Owner = ComponentHolderProtocol.GetComponentInParent<LivingEntity>(gameObject);
