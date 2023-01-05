@@ -13,8 +13,7 @@ namespace KittyPlatformer.Controllers
 
         private bool IsAttack()
         {
-            return joystick.GetPower() < idling && 
-                   joystick.LastPossiblePower > idling;
+            return joystick.GetPower() >= idling;
         }
 
         private bool IsAim()

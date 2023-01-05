@@ -28,7 +28,6 @@ namespace KittyPlatformer.Base
                                             position+direction,
                                             currentSpeed*Time.deltaTime);
             transform.position = position;
-            Sprite.flipX = direction.x < 0.0f;
         }
 
         public void Jump(float mullForce)

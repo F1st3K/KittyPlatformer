@@ -43,7 +43,7 @@ namespace KittyPlatformer.Objects
         {
             StateVariableEntity = obj;
         }
-
+        
         public void ToggleCurrentSwitchingEntity()
         {
             if (StateVariableEntity.IsActivate)
