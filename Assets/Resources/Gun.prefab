@@ -62,6 +62,8 @@ MonoBehaviour:
   damage: 1
   reloadTime: 500
   innerRadius: 3
+  bulletPrefab: {fileID: 1380987935030965257, guid: dd0e593690a227b4e83fff0cccfd44e1, type: 3}
+  flightTimeBullet: 500
 --- !u!1 &4960579394450779947
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ namespace KittyPlatformer.Base
             RotationVector2 = direction;
             AttackPoint = CreateAttackPoint(direction);
             _sprite.transform.position = AttackPoint;
-            _sprite.transform.rotation = Quaternion.Euler(0, 0, CreateAttackAngle(direction));
+            _sprite.transform.rotation = CreateAttackAngle(direction);
             _sprite.flipX = _sprite.transform.rotation.z > 0;
         }
         
@@ -36,8 +36,8 @@ namespace KittyPlatformer.Base
             return point;
         }
         
-        private float CreateAttackAngle(Vector2 direction) 
-            => (float)(Math.Atan2(direction.x, direction.y) * -180 / Math.PI);
+        private protected Quaternion CreateAttackAngle(Vector2 direction) 
+            => Quaternion.Euler(0, 0, (float)(Math.Atan2(direction.x, direction.y) * -180 / Math.PI));
 
         private protected override void Awake()
         {
