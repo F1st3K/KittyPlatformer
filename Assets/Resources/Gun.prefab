@@ -63,7 +63,6 @@ MonoBehaviour:
   reloadTime: 500
   innerRadius: 3
   bulletPrefab: {fileID: 1380987935030965257, guid: dd0e593690a227b4e83fff0cccfd44e1, type: 3}
-  flightTimeBullet: 500
 --- !u!1 &4960579394450779947
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,8 +88,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4960579394450779947}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.026, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.2, z: 0}
+  m_LocalPosition: {x: 1.709, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.1091348, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4960579394047073738}

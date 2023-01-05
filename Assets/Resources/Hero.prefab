@@ -461,7 +461,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 639769791632954577, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
       propertyPath: reloadTime
-      value: 200
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 639769791632954577, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
+      propertyPath: innerRadius
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 639769791632954577, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
       propertyPath: countCollisionsBullet
@@ -541,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4960579394047073738, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.22
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 4960579394047073738, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -556,12 +560,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4960579394450779946, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7922
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960579394450779946, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0946561
+      value: 0.657744
       objectReference: {fileID: 0}
     - target: {fileID: 4960579394450779946, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7118
+      value: 1.569
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960579394450779946, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
 
@@ -6,16 +7,28 @@ namespace KittyPlatformer.Weapons
 {
     public class Bullet : MonoBehaviour
     {
+        [SerializeField] private int countCollisions;
+        [SerializeField] private int timeLiver;
+        [SerializeField] private float speed;
+        
+        private Vector2 _direction;
         private int _damage;
-        private int _countCollisions;
         private ILiving _owner;
 
         private Rigidbody2D _rigidbody2D;
         private Collider2D _collider2D;
+        private Timer TimerLive;
 
         public int Damage => _damage;
 
-        public int CountCollisions => _countCollisions;
+        public int CountCollisions => countCollisions;
+
+        public void SetDirection(Vector2 vector2)
+        {
+            if (vector2 == Vector2.zero)
+                throw new ArgumentException();
+            _direction = vector2;
+        }
         
         public void SetDamage(int value)
         {
@@ -24,13 +37,6 @@ namespace KittyPlatformer.Weapons
             _damage = value;
         }
 
-        public void SetCountCollisions(int value)
-        {
-            if (value < 0)
-                throw new ArgumentException();
-            _countCollisions = value;
-        }
-        
         public void SetOwner(ILiving value)
         {
             _owner = value;
@@ -40,11 +46,14 @@ namespace KittyPlatformer.Weapons
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
+            TimerLive = new Timer(timeLiver);
+            TimerLive.Elapsed += ((sender, args) => countCollisions--);
         }
 
         private void Start()
         {
-            
+            _rigidbody2D.velocity = _direction * speed;
+            TimerLive.Start();
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -52,12 +61,12 @@ namespace KittyPlatformer.Weapons
             if (other.gameObject.TryGetComponent(out ILiving entity) &&
                 entity != _owner)
                 entity.GetDamage(Damage);
-            _countCollisions--;
+            countCollisions--;
         }
 
         private void Update()
         {
-            if (_countCollisions <= 0)
+            if (countCollisions <= 0)
                 Destroy(gameObject);
         }
     }

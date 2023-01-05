@@ -7,7 +7,6 @@ namespace KittyPlatformer.Weapons
     public class Gun : RotatingWeapon
     {
         [SerializeField] private GameObject bulletPrefab;
-        [SerializeField] private int countCollisionsBullet;
         
         public override void Fire(float power)
         {
@@ -17,11 +16,11 @@ namespace KittyPlatformer.Weapons
             {
                 var vector3 = (Vector3) AttackPoint;
                 vector3.z = bulletPrefab.transform.position.z;
-                GameObject obj = Instantiate(bulletPrefab, vector3, Quaternion.identity);
+                GameObject obj = Instantiate(bulletPrefab, vector3, CreateAttackAngle(RotationVector2));
                 if (obj.TryGetComponent(out Bullet bullet))
                 {
+                    bullet.SetDirection(RotationVector2);
                     bullet.SetDamage(Convert.ToInt32(Damage * power));
-                    bullet.SetCountCollisions(countCollisionsBullet);
                     bullet.SetOwner(Owner);
                 }
                 IsCouldown = false;

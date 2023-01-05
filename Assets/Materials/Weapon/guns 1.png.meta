@@ -120,12 +120,12 @@ TextureImporter:
       name: m4a1
       rect:
         serializedVersion: 2
-        x: 574
+        x: 571
         y: 418
-        width: 162
-        height: 615
+        width: 165
+        height: 627
       alignment: 9
-      pivot: {x: 0.33386305, y: 0.97045076}
+      pivot: {x: 0.33818543, y: 0.9897882}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,7 +146,7 @@ TextureImporter:
         width: 12
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
