@@ -1,4 +1,5 @@
 ﻿using System;
+using KittyPlatformer.Controllers;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace KittyPlatformer.Base
     {
         [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
-        [SerializeField] private Transform pointJump;
+        [SerializeField] private GroundController groundController;
 
         private protected Rigidbody2D Rigidbody2D;
         private protected Collider2D Collider2D;
@@ -38,12 +39,7 @@ namespace KittyPlatformer.Base
             Rigidbody2D.velocity =  Vector2.up * currentJumpForce;
         }
 
-        public virtual bool CheckStayGround()
-        {
-            RaycastHit2D rayOnGround = Physics2D.Raycast(pointJump.position,
-                                                         Vector2.down, 0);
-            return rayOnGround.collider;
-        }
+        public virtual bool CheckStayGround() => groundController.IsGround;
 
         private protected virtual void Awake()
         {

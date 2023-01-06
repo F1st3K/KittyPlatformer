@@ -12,10 +12,10 @@ namespace KittyPlatformer.Base
         [SerializeField] private int shotPrice;
         [SerializeField] private protected double reloadTime;
         private protected Timer ReloadingTimer;
-        private protected bool IsCouldown;
         private protected Vector2 AttackPoint;
         private protected LivingEntity Owner;
 
+        public bool IsCouldown { get; private protected set; }
         public int Damage => damage;
         public int ShotPrice => shotPrice;
         public virtual Vector2 RotationVector2 => Vector2.zero;

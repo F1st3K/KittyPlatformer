@@ -12,21 +12,17 @@ namespace KittyPlatformer.Weapons
         {
             if (power <= 0)
                 return;
-            if (IsCouldown)
+            var vector3 = (Vector3) AttackPoint;
+            vector3.z = bulletPrefab.transform.position.z;
+            GameObject obj = Instantiate(bulletPrefab, vector3, CreateAttackAngle(RotationVector2));
+            if (obj.TryGetComponent(out Bullet bullet))
             {
-                var vector3 = (Vector3) AttackPoint;
-                vector3.z = bulletPrefab.transform.position.z;
-                GameObject obj = Instantiate(bulletPrefab, vector3, CreateAttackAngle(RotationVector2));
-                if (obj.TryGetComponent(out Bullet bullet))
-                {
-                    bullet.SetDirection(RotationVector2);
-                    bullet.SetDamage(Convert.ToInt32(Damage * power));
-                    bullet.SetOwner(Owner);
-                }
-                IsCouldown = false;
-                ReloadingTimer.Start();
+                bullet.SetDirection(RotationVector2);
+                bullet.SetDamage(Convert.ToInt32(Damage * power));
+                bullet.SetOwner(Owner);
             }
-            
+            IsCouldown = false;
+            ReloadingTimer.Start();
         }
 
         private void OnDrawGizmosSelected()

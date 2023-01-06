@@ -15,8 +15,13 @@ namespace KittyPlatformer.Base
 
         public void Attack(float power)
         {
-            weapon.Fire(power);
-            manaWallet.SpendResources(weapon.ShotPrice);
+            if (manaWallet.CountResources >= weapon.ShotPrice &&
+                weapon.IsCouldown &&
+                power > 0)
+            {
+                weapon.Fire(power);
+                manaWallet.SpendResources(weapon.ShotPrice);
+            }
         }
         
         public void TakeAim(Vector2 direction)
