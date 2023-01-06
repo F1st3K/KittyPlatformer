@@ -23,7 +23,7 @@ namespace KittyPlatformer.Controllers
         
         private void Update()
         {
-            if (IsAim())
+            if (IsAim() || IsAttack())
             {
                 (attachingEntity as IAttacker)?.TakeAim(joystick.GetCurrentVector());
                 joystick.ResetVector();
