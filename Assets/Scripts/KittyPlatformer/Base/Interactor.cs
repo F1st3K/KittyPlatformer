@@ -13,6 +13,8 @@ namespace KittyPlatformer.Base
 
         public int CountCoin => coinWallet.CountResources;
         public int CountMana => manaWallet.CountResources;
+        
+        public IWallet CoinWallet => coinWallet;
 
         public IStateVariable StateVariableEntity { get; private set; }
 

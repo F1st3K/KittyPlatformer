@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4669613535688272397}
   - component: {fileID: 3998146573576822433}
   m_Layer: 0
-  m_Name: StaticObstacle
+  m_Name: staticObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -187,5 +187,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   jumpForce: 0
-  pointJump: {fileID: 0}
+  groundController: {fileID: 0}
   weapon: {fileID: 0}

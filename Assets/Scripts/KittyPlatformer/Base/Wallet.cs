@@ -12,6 +12,8 @@ namespace KittyPlatformer.Base
         public int CountResources => countResources;
         
         public int MaxResources => maxResources;
+        
+        public event Action CountChanged;
 
         public void AddResources(int value)
         {
@@ -19,6 +21,7 @@ namespace KittyPlatformer.Base
                 value > maxResources)
                 throw new ArgumentException();
             countResources += value;
+            OnCountChanged();
         }
 
         public void SpendResources(int value)
@@ -27,8 +30,14 @@ namespace KittyPlatformer.Base
                 value > countResources)
                 throw new ArgumentException();
             countResources -= value;
+            OnCountChanged();
         }
 
+        private void OnCountChanged()
+        {
+            CountChanged?.Invoke();
+        }
+        
         private protected virtual void Awake()
         {
             maxResources = countResources;

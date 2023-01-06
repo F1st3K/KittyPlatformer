@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &207740925962327065
 MonoBehaviour:
@@ -119,9 +119,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   jumpForce: 0
-  pointJump: {fileID: 0}
+  groundController: {fileID: 0}
   maxHealthPoint: 0
   weapon: {fileID: 0}
+  manaWallet: {fileID: 0}
 --- !u!1 &7318721110840783061
 GameObject:
   m_ObjectHideFlags: 0

@@ -87,9 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   jumpForce: 0
-  pointJump: {fileID: 0}
+  groundController: {fileID: 0}
   maxHealthPoint: 0
   weapon: {fileID: 0}
+  manaWallet: {fileID: 0}
 --- !u!1 &3946011495508439235
 GameObject:
   m_ObjectHideFlags: 0

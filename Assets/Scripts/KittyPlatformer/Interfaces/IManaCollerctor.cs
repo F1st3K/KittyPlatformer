@@ -4,7 +4,7 @@ namespace KittyPlatformer.Interfaces
 {
     public interface IManaCollerctor
     {
-        public int CountMana { get; }
+        public IWallet ManaWallet { get; }
         public void OnTriggerEnter2D(Collider2D other);
     }
 }
