@@ -38,7 +38,7 @@ namespace KittyPlatformer.Base
             Rigidbody2D.velocity =  Vector2.up * currentJumpForce;
         }
 
-        public bool CheckStayGround()
+        public virtual bool CheckStayGround()
         {
             RaycastHit2D rayOnGround = Physics2D.Raycast(pointJump.position,
                                                          Vector2.down, 0);
