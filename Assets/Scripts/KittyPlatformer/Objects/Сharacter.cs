@@ -2,7 +2,7 @@
 using KittyPlatformer.Interfaces;
 namespace KittyPlatformer.Objects
 {
-    public sealed class Сharacter : Changer
+    public sealed class Сharacter : Interactor
     {
         
     }
