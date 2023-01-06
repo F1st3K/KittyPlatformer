@@ -9,13 +9,15 @@ namespace KittyPlatformer.Base
         [SerializeField] private protected float innerRadius;
         
         private SpriteRenderer _sprite;
-        public Vector2 RotationVector2 { get; private set; }
+        private Vector2 rotationVector2;
+
+        public override Vector2 RotationVector2 => rotationVector2;
 
         public override void Rotate(Vector2 direction)
         {
             if (direction == Vector2.zero)
                 return;
-            RotationVector2 = direction;
+            rotationVector2 = direction;
             AttackPoint = CreateAttackPoint(direction);
             _sprite.transform.position = AttackPoint;
             _sprite.transform.rotation = CreateAttackAngle(direction);
