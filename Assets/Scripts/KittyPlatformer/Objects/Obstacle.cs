@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KittyPlatformer.Objects
 {
-    public class Obstacle : Entity, IAttacker
+    public class Obstacle : Entity
     {
         [SerializeField] private Weapon weapon;
         

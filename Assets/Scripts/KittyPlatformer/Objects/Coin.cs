@@ -2,7 +2,7 @@
 
 namespace KittyPlatformer.Objects
 {
-    public sealed class Coin : Item
+    public sealed class Coin : Resource
     {
         
     }

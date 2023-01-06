@@ -1,6 +1,7 @@
 ﻿using System;
 using KittyPlatformer.Interfaces;
 using KittyPlatformer.Objects;
+using KittyPlatformer.Wallets;
 using UnityEngine;
 
 namespace KittyPlatformer.Base
@@ -8,11 +9,10 @@ namespace KittyPlatformer.Base
     public abstract class Interactor : AttackerEntity, IStateChanger, ICoinCollector, IManaCollerctor
 
     {
-        [SerializeField] private int countCoin;
-        [SerializeField] private int countMana;
+        [SerializeField] private CoinWallet coinWallet;
 
-        public int CountCoin => countCoin;
-        public int CountMana => countMana;
+        public int CountCoin => coinWallet.CountResources;
+        public int CountMana => manaWallet.CountResources;
 
         public IStateVariable StateVariableEntity { get; private set; }
 
@@ -32,8 +32,11 @@ namespace KittyPlatformer.Base
         {
             if (other.gameObject.TryGetComponent(out IItem item))
             {
-                if (item as Coin) countCoin += item.Count;
-                if (item as Mana) countMana += item.Count;
+                if (item.Count >= 0)
+                {
+                    if (item as Coin) coinWallet.AddResources(item.Count);
+                    else if (item as Mana) manaWallet.AddResources(item.Count);
+                }
                 item.Collect();
             }
                 

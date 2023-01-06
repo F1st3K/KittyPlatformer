@@ -9,6 +9,7 @@ namespace KittyPlatformer.Base
     public abstract class Weapon : MonoBehaviour, IWeaponer
     {
         [SerializeField] private int damage;
+        [SerializeField] private int shotPrice;
         [SerializeField] private protected double reloadTime;
         private protected Timer ReloadingTimer;
         private protected bool IsCouldown;
@@ -16,6 +17,7 @@ namespace KittyPlatformer.Base
         private protected LivingEntity Owner;
 
         public int Damage => damage;
+        public int ShotPrice => shotPrice;
         public virtual Vector2 RotationVector2 => Vector2.zero;
         public void SetOwner()
         {

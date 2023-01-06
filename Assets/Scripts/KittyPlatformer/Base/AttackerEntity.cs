@@ -1,5 +1,6 @@
 ﻿using KittyPlatformer.Interfaces;
 using KittyPlatformer.Objects;
+using KittyPlatformer.Wallets;
 using UnityEngine;
 
 namespace KittyPlatformer.Base
@@ -7,12 +8,15 @@ namespace KittyPlatformer.Base
     public abstract class AttackerEntity : LivingEntity, IAttacker
     {
         [SerializeField] private Weapon weapon;
-        
+        [SerializeField] private protected ManaWallet manaWallet;
+
         public IWeaponer Weapon => weapon;
+        public IWallet ManaWallet => manaWallet;
 
         public void Attack(float power)
         {
             weapon.Fire(power);
+            manaWallet.SpendResources(weapon.ShotPrice);
         }
         
         public void TakeAim(Vector2 direction)

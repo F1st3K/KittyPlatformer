@@ -311,6 +311,8 @@ Transform:
   - {fileID: 5633385776265593359}
   - {fileID: 5633385776800295630}
   - {fileID: 9222790957017738270}
+  - {fileID: 8821345274322551912}
+  - {fileID: 7652835624419711397}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -368,6 +370,8 @@ MonoBehaviour:
   pointJump: {fileID: 5633385776265593359}
   maxHealthPoint: 10
   weapon: {fileID: 3731936062884848901}
+  manaWallet: {fileID: 0}
+  coinWallet: {fileID: 0}
 --- !u!1 &5633385777069161010
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,4 +596,128 @@ MonoBehaviour:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4960579394047073738, guid: f7ec63296bd26a54f9b3991c2e0f0e4e, type: 3}
   m_PrefabInstance: {fileID: 4263337851044131284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4701474584573853081
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5633385777009097043}
+    m_Modifications:
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404478626535438818, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+      propertyPath: m_Name
+      value: Mana Wallet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+--- !u!4 &8821345274322551912 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
+  m_PrefabInstance: {fileID: 4701474584573853081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7975064263104268081
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5633385777009097043}
+    m_Modifications:
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987215106741613921, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+      propertyPath: m_Name
+      value: Coin Wallet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+--- !u!4 &7652835624419711397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 331379360202481300, guid: 1bdffbbefa42cb841aaa70e024d478a9, type: 3}
+  m_PrefabInstance: {fileID: 7975064263104268081}
   m_PrefabAsset: {fileID: 0}

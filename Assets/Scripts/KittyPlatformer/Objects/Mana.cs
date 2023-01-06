@@ -2,7 +2,7 @@
 
 namespace KittyPlatformer.Objects
 {
-    public class Mana : Item
+    public class Mana : Resource
     {
         
     }
