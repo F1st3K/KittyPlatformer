@@ -9,6 +9,7 @@ namespace KittyPlatformer.Objects
         [SerializeField] private GameObject[] prefabs;
         [SerializeField] private int[] probabilities;
         [SerializeField] private int countItems;
+        [SerializeField] private float dispersion;
 
         private Random _random;
         private int[] pullProbabilities;
@@ -62,6 +63,10 @@ namespace KittyPlatformer.Objects
 
         private Vector3 GenerateScatteredPosition(Vector3 position)
         {
+            var pos = (float) (_random.NextDouble() * dispersion);
+            pos *= _random.Next(1, 2) == 1 ? -1 : 1;
+            position.x += pos;
+            position.y += (float) (_random.NextDouble() * dispersion);
             return position;
         }
     }

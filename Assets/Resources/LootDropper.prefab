@@ -49,3 +49,4 @@ MonoBehaviour:
   - {fileID: 3273510872138527028, guid: 5b1b35ae8e313424785f4c18d3c2c72b, type: 3}
   probabilities: 4b00000019000000
   countItems: 4
+  dispersion: 2
