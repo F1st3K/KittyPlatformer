@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3946011494056175149}
   - component: {fileID: -7806058760585614842}
   - component: {fileID: 6657543808814027722}
+  - component: {fileID: 598201515619655444}
   m_Layer: 0
   m_Name: StaticEnemy
   m_TagString: Untagged
@@ -90,8 +91,24 @@ MonoBehaviour:
   jumpForce: 0
   groundController: {fileID: 0}
   maxHealthPoint: 5
-  weapon: {fileID: 128331729829373009}
+  weapon: {fileID: 598201515619655444}
   manaWallet: {fileID: 1578888544294353923}
+--- !u!114 &598201515619655444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946011494056175151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232aed6e4b984c8d957a05a8d8d22d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  shotPrice: 0
+  reloadTime: 500
+  isEnabled: 1
 --- !u!1 &3946011495508439235
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +119,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3946011495508439234}
   - component: {fileID: 3946011495508439233}
-  - component: {fileID: 128331729829373009}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -177,22 +193,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &128331729829373009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3946011495508439235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 232aed6e4b984c8d957a05a8d8d22d41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  shotPrice: 0
-  reloadTime: 500
-  isEnabled: 1
 --- !u!1001 &497008880927096043
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ namespace KittyPlatformer.Objects
     public class LivingEntity : Entity, ILiving
     {
         [SerializeField] private int maxHealthPoint;
+        [SerializeField] private LootDropper dropper;
 
         public int MaxHealthPoint => maxHealthPoint;
 
@@ -53,7 +54,13 @@ namespace KittyPlatformer.Objects
             {
                 HealthChanged -= CheckDeath;
                 Destroy(gameObject);
+                OnDead();
             }
+        }
+
+        private void OnDead()
+        {
+            dropper.Drop(transform.position);
         }
     }
 }

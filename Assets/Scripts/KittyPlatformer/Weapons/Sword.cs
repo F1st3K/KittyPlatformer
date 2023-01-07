@@ -2,7 +2,6 @@
 using KittyPlatformer.Base;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace KittyPlatformer.Weapons
 {
