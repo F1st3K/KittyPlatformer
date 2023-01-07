@@ -22,10 +22,10 @@ namespace KittyPlatformer.Weapons
                     IsCouldown)
                 {
                     entity.GetDamage(Convert.ToInt32(Damage * power));
-                    IsCouldown = false;
-                    ReloadingTimer.Start();
                 }
             }
+            IsCouldown = false;
+            ReloadingTimer.Start();
         }
 
         private Collider2D[] CreateAttackArea(Vector2 position)
