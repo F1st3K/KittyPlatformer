@@ -498,7 +498,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 776642164}
-        m_TargetAssemblyTypeName: FunctionMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: KittyPlatformer.Controllers.LoaderScene, Assembly-CSharp
         m_MethodName: LoadCurrentLevel
         m_Mode: 1
         m_Arguments:
@@ -1217,7 +1217,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 776642164}
-        m_TargetAssemblyTypeName: FunctionMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: KittyPlatformer.Controllers.LoaderScene, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 776642159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e832aa813d4c079addf8437d3c82a5, type: 3}
+  m_Script: {fileID: 11500000, guid: c0150e89379746d6a52a8aa968a9ba1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &935066460
@@ -2277,7 +2277,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 776642164}
-        m_TargetAssemblyTypeName: FunctionMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: KittyPlatformer.Controllers.LoaderScene, Assembly-CSharp
         m_MethodName: SelectLevel
         m_Mode: 3
         m_Arguments:

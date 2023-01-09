@@ -66,7 +66,7 @@ namespace KittyPlatformer.Objects
             var pos = (float) (_random.NextDouble() * dispersion);
             pos *= _random.Next(1, 2) == 1 ? -1 : 1;
             position.x += pos;
-            position.y += (float) (_random.NextDouble() * dispersion);
+            position.y += (float) (_random.NextDouble() * dispersion/2);
             return position;
         }
     }
