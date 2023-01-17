@@ -127,7 +127,7 @@ MonoBehaviour:
   dropper: {fileID: 1808561038234108286}
   weapon: {fileID: 8317192224191948122}
   manaWallet: {fileID: 3610935103418835872}
-  visibilityRadius: 2
+  visibilityRadius: 5
 --- !u!114 &8317192224191948122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 232aed6e4b984c8d957a05a8d8d22d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 0
   shotPrice: 0
   reloadTime: 200
   isEnabled: 1

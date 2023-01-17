@@ -31,6 +31,11 @@ namespace KittyPlatformer.Base
             transform.position = position;
         }
 
+        public void Rotate(Vector3 direction)
+        {
+            Sprite.flipX = transform.position.x > direction.x;
+        }
+
         public void Jump(float mullForce)
         {
             if (mullForce < 0)

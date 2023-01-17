@@ -26,8 +26,11 @@ namespace KittyPlatformer.Base
         
         public void TakeAim(Vector2 direction)
         {
-            weapon.Rotate(direction);
-            Sprite.flipX = ((RotatingWeapon) weapon).RotationVector2.x < 0;
+            if (direction != Vector2.zero)
+            {
+                weapon.Rotate(direction);
+                Rotate(transform.position + (Vector3) direction);
+            }
         }
 
         public Weapon ReplaceWeapon(Weapon obj)

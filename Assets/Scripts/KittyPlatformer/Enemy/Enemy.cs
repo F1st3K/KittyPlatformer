@@ -24,8 +24,20 @@ namespace KittyPlatformer.Enemy
                     _isChase = true;
                     return;
                 }
+
+            _isChase = false;
         }
-        
+
+        private void Update()
+        {
+            if (_isChase)
+            {
+                var direction = chasingCharacter.transform.position;
+                Move(direction - transform.position, 1f);
+                Rotate(direction);
+            }
+        }
+
         private void FixedUpdate()
         {
             LookAround();
