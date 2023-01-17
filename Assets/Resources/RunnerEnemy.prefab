@@ -127,6 +127,7 @@ MonoBehaviour:
   dropper: {fileID: 1808561038234108286}
   weapon: {fileID: 8317192224191948122}
   manaWallet: {fileID: 3610935103418835872}
+  visibilityRadius: 2
 --- !u!114 &8317192224191948122
 MonoBehaviour:
   m_ObjectHideFlags: 0

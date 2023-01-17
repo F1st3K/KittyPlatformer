@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = System.Random;
 
-namespace KittyPlatformer.Objects
+namespace KittyPlatformer.Enemy
 {
     public class LootDropper : MonoBehaviour
     {

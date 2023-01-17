@@ -1,5 +1,6 @@
 ﻿using System;
 using KittyPlatformer.Base;
+using KittyPlatformer.Enemy;
 using KittyPlatformer.Interfaces;
 using UnityEngine;
 
