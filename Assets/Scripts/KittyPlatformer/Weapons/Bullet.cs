@@ -64,7 +64,7 @@ namespace KittyPlatformer.Weapons
             countCollisions--;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (countCollisions <= 0)
                 Destroy(gameObject);
