@@ -128,6 +128,7 @@ MonoBehaviour:
   weapon: {fileID: 8317192224191948122}
   manaWallet: {fileID: 3610935103418835872}
   visibilityRadius: 5
+  attackRadius: 1
 --- !u!114 &8317192224191948122
 MonoBehaviour:
   m_ObjectHideFlags: 0

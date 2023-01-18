@@ -10,17 +10,27 @@ namespace KittyPlatformer.Enemy
     public sealed class Enemy : AttackerEntity
     {
         [SerializeField] private float visibilityRadius;
+        [SerializeField] private float attackRadius;
 
         private bool _isChase;
         private Interactor chasingCharacter;
 
         private void LookAround()
         {
-            Collider2D [] objs = Physics2D.OverlapCircleAll(transform.position, visibilityRadius);
-            foreach (var entity in objs)
-                if (entity.gameObject.TryGetComponent(out Interactor character))
+            Collider2D [] visibleCircle = Physics2D.OverlapCircleAll(transform.position, visibilityRadius);
+            Collider2D [] attackingCircle = Physics2D.OverlapCircleAll(transform.position, attackRadius);
+            foreach (var visibleEntity in visibleCircle)
+                if (visibleEntity.gameObject.TryGetComponent(out Interactor visibleCharacter))
                 {
-                    chasingCharacter = character;
+                    foreach (var attackingEntity in attackingCircle)
+                        if (attackingEntity.gameObject.TryGetComponent(out Interactor attackingCharacter))
+                        {
+                            visibleCharacter = attackingCharacter;
+                            _isChase = false;
+                            return;
+                        }
+
+                    chasingCharacter = visibleCharacter;
                     _isChase = true;
                     return;
                 }
@@ -46,6 +56,7 @@ namespace KittyPlatformer.Enemy
         private void OnDrawGizmosSelected()
         {
             Gizmos.DrawWireSphere(transform.position, visibilityRadius);
+            Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
     }
 }
