@@ -13,6 +13,7 @@ namespace KittyPlatformer.Enemy
         [SerializeField] private float attackRadius;
 
         private bool _isChase;
+        private bool _isAttack;
         private Interactor chasingCharacter;
 
         private void LookAround()
@@ -27,15 +28,18 @@ namespace KittyPlatformer.Enemy
                         {
                             visibleCharacter = attackingCharacter;
                             _isChase = false;
+                            _isAttack = true;
                             return;
                         }
 
                     chasingCharacter = visibleCharacter;
                     _isChase = true;
+                    _isAttack = false;
                     return;
                 }
 
             _isChase = false;
+            _isAttack = false;
         }
 
         private void Update()
@@ -45,6 +49,12 @@ namespace KittyPlatformer.Enemy
                 var direction = chasingCharacter.transform.position;
                 Move(direction - transform.position, 1f);
                 Rotate(direction);
+                TakeAim(direction);
+            }
+
+            if (_isAttack)
+            {
+                //Attack(1f);
             }
         }
 
