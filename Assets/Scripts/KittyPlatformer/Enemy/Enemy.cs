@@ -44,16 +44,18 @@ namespace KittyPlatformer.Enemy
 
         private void Update()
         {
+            
             if (_isChase)
             {
                 var direction = chasingCharacter.transform.position;
                 Move(direction - transform.position, 1f);
                 Rotate(direction);
-                TakeAim(direction);
+                TakeAim(direction - transform.position);
             }
 
             if (_isAttack)
             {
+                TakeAim(chasingCharacter.transform.position - transform.position);
                 //Attack(1f);
             }
         }

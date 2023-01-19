@@ -19,7 +19,7 @@ namespace KittyPlatformer.Base
                 return;
             rotationVector2 = direction;
             AttackPoint = CreateAttackPoint(direction);
-            _sprite.transform.position = AttackPoint;
+            _sprite.transform.position = new Vector3(AttackPoint.x, AttackPoint.y, _sprite.transform.position.z);
             _sprite.transform.rotation = CreateAttackAngle(direction);
             _sprite.flipX = _sprite.transform.rotation.z > 0;
         }
@@ -45,6 +45,7 @@ namespace KittyPlatformer.Base
         {
             base.Awake();
             _sprite = GetComponentInChildren<SpriteRenderer>();
+            Debug.Log(_sprite.transform.position + name);
             Rotate(Vector2.right);
         }
     }
