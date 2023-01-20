@@ -1,4 +1,5 @@
-﻿using KittyPlatformer.Base;
+﻿using System;
+using KittyPlatformer.Base;
 using UnityEngine;
 
 namespace KittyPlatformer.Enemy
@@ -10,6 +11,7 @@ namespace KittyPlatformer.Enemy
         [SerializeField] private float patrolLength;
 
         private bool _isChase;
+        private bool _isCollision;
         private bool _isAttack;
         private Interactor _chasingCharacter;
         private Patrol _patrol;
@@ -40,6 +42,23 @@ namespace KittyPlatformer.Enemy
             _isAttack = false;
         }
 
+        private void LookAhead()
+        {
+            Vector2 point = Sprite.transform.position;
+            point.x += Sprite.size.x / 2 * (Sprite.flipX ? 1 : -1);
+            Vector2 size = Sprite.size;
+            size.x = 0;
+            Collider2D[] ahead = Physics2D.OverlapBoxAll(point, size, 0);
+            foreach (var collider2D in ahead)
+            {
+                if (collider2D.gameObject.TryGetComponent(out Entity entity))
+                    continue;
+                _isCollision = true;
+                return;
+            }
+            _isCollision = false;
+        }
+
         private protected override void Awake()
         {
             base.Awake();
@@ -48,30 +67,34 @@ namespace KittyPlatformer.Enemy
         
         private void Update()
         {
-            
             if (_isChase)
             {
                 var direction = _chasingCharacter.transform.position;
-                Move(direction - transform.position, 1f);
+                var position = transform.position;
+                Move(direction - position, 1f);
                 Rotate(direction);
-                TakeAim(direction - transform.position);
+                TakeAim(direction - position);
             }
 
             if (_isAttack)
             {
                 TakeAim(_chasingCharacter.transform.position - transform.position);
-                //Attack(1f);
+                Attack(0f);
             }
 
             if (_isChase == false &&
                 _isAttack == false &&
                 patrolLength > 0)
-                _patrol.Run();
+                _patrol.Run(1f);
+            
+            if (_isCollision)
+                Jump(1f);
         }
 
         private void FixedUpdate()
         {
             LookAround();
+            LookAhead();
         }
 
         private void OnDrawGizmosSelected()

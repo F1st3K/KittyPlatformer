@@ -887,7 +887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4960579394047073738, guid: 2d89955fea8e0bb43876f7f068431d0c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4960579394047073738, guid: 2d89955fea8e0bb43876f7f068431d0c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3168,6 +3168,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5057134754663820823, guid: 2987810ac71bcd247906e389cffde07d, type: 3}
   m_PrefabInstance: {fileID: 1896348365}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1846745830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846745833}
+  - component: {fileID: 1846745832}
+  - component: {fileID: 1846745831}
+  m_Layer: 0
+  m_Name: PointJump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1846745831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846745830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac31dcc075d446a3864e447e847d401f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &1846745832
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846745830}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1, y: 0}
+  m_Size: {x: 0.5, y: 0.1}
+  m_Direction: 1
+--- !u!4 &1846745833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846745830}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09, y: -0.738, z: -9.867985}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7318721110993264780}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1857573245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3938,15 +3999,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpForce: 1
-  groundController: {fileID: 0}
+  jumpForce: 5
+  groundController: {fileID: 1846745831}
   maxHealthPoint: 35
   dropper: {fileID: 1180952806}
   weapon: {fileID: 862703988}
   manaWallet: {fileID: 468239370}
   visibilityRadius: 3
   attackRadius: 1
-  patrolLength: 1
+  patrolLength: 5
 --- !u!1001 &1117862905922157614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4405,7 +4466,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4275403632911596017, guid: 1756bd388d4a3e747b936781a81dc41d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4862,7 +4923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2392213395133761277, guid: 3200382711bc03b4abc57aca22f7f4fd, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2392213395133761277, guid: 3200382711bc03b4abc57aca22f7f4fd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5028,7 +5089,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7318721110993264780}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7318721109297083513
 PrefabInstance:
@@ -5222,12 +5283,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7318721110821715314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.54, y: 0.2, z: -0.12234289}
+  m_LocalPosition: {x: -4.05, y: -1.75, z: -0.12234289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7318721110622344225}
   - {fileID: 1180952807}
+  - {fileID: 1846745833}
   - {fileID: 7318721108967343228}
   - {fileID: 468239371}
   - {fileID: 1071133812}
