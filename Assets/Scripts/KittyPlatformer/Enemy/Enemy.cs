@@ -1,9 +1,5 @@
-﻿using System;
-using KittyPlatformer.Base;
-using KittyPlatformer.Interfaces;
-using KittyPlatformer.Objects;
+﻿using KittyPlatformer.Base;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace KittyPlatformer.Enemy
 {
@@ -11,10 +7,12 @@ namespace KittyPlatformer.Enemy
     {
         [SerializeField] private float visibilityRadius;
         [SerializeField] private float attackRadius;
+        [SerializeField] private float patrolLength;
 
         private bool _isChase;
         private bool _isAttack;
-        private Interactor chasingCharacter;
+        private Interactor _chasingCharacter;
+        private Patrol _patrol;
 
         private void LookAround()
         {
@@ -32,7 +30,7 @@ namespace KittyPlatformer.Enemy
                             return;
                         }
 
-                    chasingCharacter = visibleCharacter;
+                    _chasingCharacter = visibleCharacter;
                     _isChase = true;
                     _isAttack = false;
                     return;
@@ -42,12 +40,18 @@ namespace KittyPlatformer.Enemy
             _isAttack = false;
         }
 
+        private protected override void Awake()
+        {
+            base.Awake();
+            _patrol = new Patrol(this, patrolLength);
+        }
+        
         private void Update()
         {
             
             if (_isChase)
             {
-                var direction = chasingCharacter.transform.position;
+                var direction = _chasingCharacter.transform.position;
                 Move(direction - transform.position, 1f);
                 Rotate(direction);
                 TakeAim(direction - transform.position);
@@ -55,9 +59,14 @@ namespace KittyPlatformer.Enemy
 
             if (_isAttack)
             {
-                TakeAim(chasingCharacter.transform.position - transform.position);
+                TakeAim(_chasingCharacter.transform.position - transform.position);
                 //Attack(1f);
             }
+
+            if (_isChase == false &&
+                _isAttack == false &&
+                patrolLength > 0)
+                _patrol.Run();
         }
 
         private void FixedUpdate()

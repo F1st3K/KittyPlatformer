@@ -45,7 +45,6 @@ namespace KittyPlatformer.Base
         {
             base.Awake();
             _sprite = GetComponentInChildren<SpriteRenderer>();
-            Debug.Log(_sprite.transform.position + name);
             Rotate(Vector2.right);
         }
     }

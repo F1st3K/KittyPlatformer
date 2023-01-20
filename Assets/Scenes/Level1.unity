@@ -694,17 +694,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 618432781}
     m_Modifications:
+    - target: {fileID: 207740925962327065, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
+      propertyPath: patrolLength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7318721110541517945, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7318721110541517945, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.92
+      value: 17.55
       objectReference: {fileID: 0}
     - target: {fileID: 7318721110541517945, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.17
       objectReference: {fileID: 0}
     - target: {fileID: 7318721110541517945, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3940,8 +3944,9 @@ MonoBehaviour:
   dropper: {fileID: 1180952806}
   weapon: {fileID: 862703988}
   manaWallet: {fileID: 468239370}
-  visibilityRadius: 7
+  visibilityRadius: 3
   attackRadius: 1
+  patrolLength: 1
 --- !u!1001 &1117862905922157614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5058,11 +5063,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7318721110541517945, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.23
+      value: 19.24
       objectReference: {fileID: 0}
     - target: {fileID: 7318721110541517945, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.17
       objectReference: {fileID: 0}
     - target: {fileID: 7318721110541517945, guid: 8ac86d01feeb6f649a76ca6306a6be46, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5217,7 +5222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7318721110821715314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.45, y: 0.2, z: -0.12234289}
+  m_LocalPosition: {x: -8.54, y: 0.2, z: -0.12234289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
