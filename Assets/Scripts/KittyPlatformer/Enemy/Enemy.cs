@@ -1,5 +1,6 @@
 ﻿using System;
 using KittyPlatformer.Base;
+using KittyPlatformer.Objects;
 using UnityEngine;
 
 namespace KittyPlatformer.Enemy
@@ -9,6 +10,7 @@ namespace KittyPlatformer.Enemy
         [SerializeField] private float visibilityRadius;
         [SerializeField] private float attackRadius;
         [SerializeField] private float patrolLength;
+        [SerializeField] private float jumpDistance;
 
         private bool _isChase;
         private bool _isCollision;
@@ -45,16 +47,17 @@ namespace KittyPlatformer.Enemy
         private void LookAhead()
         {
             Vector2 point = Sprite.transform.position;
-            point.x += Sprite.size.x / 2 * (Sprite.flipX ? 1 : -1);
+            point.x += Sprite.size.x / 2 * (Sprite.flipX ? -1 : 1);
             Vector2 size = Sprite.size;
-            size.x = 0;
+            size.x = jumpDistance;
             Collider2D[] ahead = Physics2D.OverlapBoxAll(point, size, 0);
-            foreach (var collider2D in ahead)
+            foreach (var obj in ahead)
             {
-                if (collider2D.gameObject.TryGetComponent(out Entity entity))
-                    continue;
-                _isCollision = true;
-                return;
+                if (obj.gameObject.TryGetComponent(out TileGround tile))
+                {
+                    _isCollision = true;
+                    return;
+                }
             }
             _isCollision = false;
         }
@@ -88,7 +91,9 @@ namespace KittyPlatformer.Enemy
                 _patrol.Run(1f);
             
             if (_isCollision)
+            {
                 Jump(1f);
+            }
         }
 
         private void FixedUpdate()

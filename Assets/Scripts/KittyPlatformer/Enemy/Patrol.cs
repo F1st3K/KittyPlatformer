@@ -23,7 +23,6 @@ namespace KittyPlatformer.Enemy
             CheckPosition();
             Vector3 direction = Vector3.zero;
             direction.x = _endX - CurrentX;
-            Debug.Log(direction);
             _enemy.Move(direction, mullSpeed);
         }
 
