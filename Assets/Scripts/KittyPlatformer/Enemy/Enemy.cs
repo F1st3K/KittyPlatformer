@@ -82,7 +82,7 @@ namespace KittyPlatformer.Enemy
             if (_isAttack)
             {
                 TakeAim(_chasingCharacter.transform.position - transform.position);
-                Attack(0f);
+                Attack(1f);
             }
 
             if (_isChase == false &&

@@ -58,6 +58,7 @@ namespace KittyPlatformer.Weapons
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            Debug.Log(other);
             if (other.gameObject.TryGetComponent(out ILiving entity) &&
                 entity != _owner)
                 entity.GetDamage(Damage);
