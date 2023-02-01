@@ -2476,6 +2476,14 @@ PrefabInstance:
       propertyPath: groundController
       value: 
       objectReference: {fileID: 1868173271}
+    - target: {fileID: 5633385777009097045, guid: 47f1573578d1b3242a2690cf96b0312a, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633385777009097045, guid: 47f1573578d1b3242a2690cf96b0312a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5633385777009097046, guid: 47f1573578d1b3242a2690cf96b0312a, type: 3}
       propertyPath: m_Offset.x
       value: 0.1
@@ -3324,6 +3332,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 618432781}
     m_Modifications:
+    - target: {fileID: 35841590984914405, guid: 8b167d4f047814447acc207928595cdf, type: 3}
+      propertyPath: patrolLength
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5065100785449957813, guid: 8b167d4f047814447acc207928595cdf, type: 3}
       propertyPath: damage
       value: 2
@@ -4294,11 +4306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2257103809154665977, guid: ecb2fab90c82bc94fa897210693e1709, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.41
+      value: 20.36
       objectReference: {fileID: 0}
     - target: {fileID: 2257103809154665977, guid: ecb2fab90c82bc94fa897210693e1709, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 6.27
       objectReference: {fileID: 0}
     - target: {fileID: 2257103809154665977, guid: ecb2fab90c82bc94fa897210693e1709, type: 3}
       propertyPath: m_LocalPosition.z
