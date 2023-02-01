@@ -24,6 +24,8 @@ namespace KittyPlatformer.Enemy
             Vector3 direction = Vector3.zero;
             direction.x = _endX - CurrentX;
             _enemy.Move(direction, mullSpeed);
+            direction.x = _endX;
+            _enemy.Rotate(direction);
         }
 
         private void CheckPosition()
